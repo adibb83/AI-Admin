@@ -1,0 +1,208 @@
+@import '../../../../../css/variables';
+@import '../../../../../css/mixins';
+@include breakpoint(child-bear) {
+  td {
+    height: 5.7rem;
+  }
+}
+
+#virtualPhoneTable {
+  td {
+    padding: 0 1rem;
+    strong {
+      font-size: $mediumSmallFontSize;
+      line-height: 200%;
+    }
+    a {
+      float: right;
+      margin-right: 1rem;
+      color: $dark5;
+      border: 1px solid $dark5;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+.towRowsTable {
+  tbody {
+    td {
+      padding: 0 1rem;
+      input[type=text] {
+        padding: 0 !important;
+        border-bottom: 2px solid $dark3;
+        height: 40%;
+        font-size: $mediumSmallFontSize;
+        &:focus {
+          border-bottom-color: $main5;
+        }
+      }
+    }
+    tr:nth-child(2) {
+      td {
+        @include flex-flow(row nowrap);
+        align-items: center;
+        justify-content: flex-start;
+        @include breakpoint(child-bear) {
+          @include flex-flow(column nowrap);
+          align-items: flex-start;
+          justify-content: space-around;
+        }
+        div {
+          @include flex-flow(row nowrap);
+          align-items: center;
+          justify-content: flex-start;
+          span {
+            font-size: $smallFontSize;
+            color: $dark5;
+            @include breakpoint(child-bear) {
+              min-width: 8rem;
+            }
+          }
+          md-select {
+            min-width: 12rem;
+            margin: 0 1rem;
+            border-bottom: 1px solid $dark3;
+            &:focus {
+              border-bottom-color: $main5;
+            }
+          }
+          input[type=text] {
+            max-width: 16rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+#fallbackTable {
+  tbody {
+    td {
+      @include flex-flow(row nowrap);
+      align-items: center;
+      justify-content: flex-start;
+      @include breakpoint(child-bear) {
+        @include flex-flow(column nowrap);
+        align-items: flex-start;
+        justify-content: space-around;
+      }
+      div {
+        @include flex-flow(row nowrap);
+        align-items: center;
+        justify-content: flex-start;
+        span {
+          font-size: $smallFontSize;
+          color: $dark5;
+          min-width: 9rem;
+        }
+        padding: 0 1rem;
+        input[type=text] {
+          padding: 0 !important;
+          border-bottom: 2px solid $dark3;
+          height: 40%;
+          max-width: 16rem;
+          margin-right: 1.5rem;
+          &:focus {
+            border-bottom-color: $main5;
+          }
+        }
+      }
+    }
+  }
+}
+
+#timeZoneName {
+  @include breakpoint(baby-bear) {
+    display: none;
+  }
+}
+
+// @import '../../../../css/keyframes';
+// @import '../../../../css/variables';
+// .hader {
+//   position: relative;
+//   width: 100%;
+//   display: inline-block;
+//   border-bottom: 1px solid $componentBorderGray;
+//   h1 {
+//     color: $main-Pink;
+//     font-size: $bigFontSize;
+//     margin: 0;
+//     margin-top: 2%;
+//   }
+//   p {
+//     width: 100%;
+//     float: left;
+//   }
+//   #edit {
+//     position: absolute;
+//     right: 0%;
+//     bottom: 10px;
+//     .syncLoader {
+//       position: absolute;
+//       left: 70%;
+//       top: 95%;
+//       @include transform(translate(-50%, -50%));
+//     }
+//   }
+// }
+// #content {
+//   position: relative;
+//   padding-bottom: 100px;
+//   form {
+//     table {
+//       width: 100%;
+//       font-size: $smallFontSize;
+//       #saparator {
+//         td {
+//           border-bottom: 1px solid $componentBorderGray;
+//         }
+//       }
+//       #showInstraction {
+//         text-decoration: none;
+//         color: gray;
+//       }
+//       tr {
+//          :nth-child(1) {
+//           width: 33%;
+//           input {
+//             width: 80%;
+//           }
+//         }
+//          :nth-child(2) {
+//           width: 66%;
+//         }
+//         td {
+//           span {
+//             line-height: 200%;
+//             color: $homeGreetingTextColor;
+//             padding-left: 15px;
+//           }
+//           input {
+//             width: 100%;
+//           }
+//           textarea {
+//             width: 100%;
+//           }
+//           p {
+//             width: 100%;
+//           }
+//           strong {
+//             line-height: 200%;
+//             font-size: $mediumFontSize;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+//button {
+//    width: 100px;
+//    height: 50px;
+//    margin-top: 5%;
+//    background-color: $main-Pink;
+//    border-radius: 5px;
+//    border: none;
+//    color: $DefualtTextwhite;
+//}

@@ -1,0 +1,353 @@
+<div id="homeContainer" #homeContainer>
+  <section id="section1">
+    <main class="container">
+      <div class="context">
+        <div class="sectionHeader">
+          <h1>MAKE THE RIGHT CALL</h1>
+          <p>Streamline your phone operations with artificial intelligence.</p>
+        </div>
+        <svg>
+          <defs>
+            <linearGradient id="loaderGradient">
+              <stop offset="0%" stop-color="#D94F70" />
+              <stop offset="33%" stop-color="#D94F70" />
+              <stop offset="66%" stop-color="#D94F70" />
+              <stop offset="100%" stop-color="#D94F70" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div>
+          <form #registerForm="ngForm">
+             <input type="text" placeholder="Enter your email here" name="Email" #email="ngModel" [(ngModel)]="userEmail"
+              required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+            <small [class.smallHidden]="!email.valid && showError">Email is required and format should be <i>john@doe.com</i>.</small>
+            <!--<input #email="ngModel" [(ngModel)]="email" type="text" placeholder="Enter your email here" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">-->
+            <!--<small [class.smallHidden]="!email.valid && showError">Email is required and format should be <i>john@doe.com</i>.</small>-->
+            <button (click)="setNewUserEmail(email.valid); $event.preventDefault();">Get Started</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </section>
+  <section id="section2">
+    <main class="container">
+      <div class="context">
+        <div class="imgContainer"></div>
+        <div class="sectionHeader content">
+          <h1>Delight your customers</h1>
+          <div class="pinkLine"></div>
+          <p>Increase customer satisfaction by allowing callers to speak in complete sentences using their own words.</p>
+          <ul>
+            <li>
+              <p>Improve customer loyalty</p>
+            </li>
+            <li>
+              <p>Promote self service</p>
+            </li>
+            <li>
+              <p>Eliminate long holds and frustrated customers</p>
+            </li>
+          </ul>
+          <button class="getStartedButton" (click)="goToRegister()">Get Started</button>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <section id="section3">
+    <main class="container">
+      <div class="context">
+        <div class="sectionHeader content">
+          <h1>Save time and money</h1>
+          <div class="pinkLine"></div>
+          <p>Free up your staff from time-consuming phone calls to focus on revenue-generating activities.</p>
+          <ul>
+            <li>
+              <p>No expensive hardware to setup or install</p>
+            </li>
+            <li>
+              <p>Automated outbound calling and alerts</p>
+            </li>
+            <li>
+              <p>Easily add extensions for any member on your team</p>
+            </li>
+          </ul>
+          <button class="getStartedButton" (click)="goToRegister()">Get Started</button>
+        </div>
+        <div class="imgContainer"></div>
+      </div>
+    </main>
+  </section>
+  <section id="section4">
+    <main class="container">
+      <div class="context">
+        <div class="imgContainer"></div>
+        <div class="sectionHeader content">
+          <h1>It’s as easy as 1-2-3</h1>
+          <div class="pinkLine"></div>
+          <p>With a simple signup process your virtual assistant will be up and running in less than 5 minutes. </p>
+          <ul>
+            <li>
+              <p>Keep your existing number</p>
+            </li>
+            <li>
+              <p>Enable call forwarding to multiple extensions</p>
+            </li>
+            <li>
+              <p>Get calls, voicemail, and faxes anywhere</p>
+            </li>
+          </ul>
+          <button class="getStartedButton" type="submit" (click)="goToRegister()">Get Started</button>
+        </div>
+      </div>
+    </main>
+  </section>
+</div>
+<account-footer></account-footer>
+
+
+
+
+
+
+
+<!--GRAVEYARD========================================================================================================-->
+<!--<section id="section2">
+    <main class="container">
+      <div class="context">
+        <h1 class="headline">experience <br/> the future</h1>
+        <div class="lineImg"></div>
+        <p>Start a call with our virtual cognitive agent</p>
+        <div>
+          <form #callForm="ngForm" novalidate (ngSubmit)="sendNumber(callForm.valid, callForm.value)">
+            <input type="text" #phone="ngModel" name="Phone" [(ngModel)]="callNumber" required minlength="12" maxlength="17" pattern="\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$"
+              placeholder="Enter your Phone number">
+            <button #callmeButton type="submit">CALL ME</button>
+          </form>
+        </div>
+        <p>Or call from your phone +12812310568</p>
+        <small style="float: left;" [class.smallHidden]="!phone.valid && callForm.submitted">number format example +972544557933</small>
+      </div>
+      <div class="callLoader" *ngIf="calling">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+          <br>
+          <span>calling...</span>
+        </div>
+      </div>
+    </main>
+  </section>
+  <section id="section3">
+    <main class="container">
+      <div class="context">
+        <div id="firstText">
+          <h1 class="headline">Enterprise Level Solutions</h1>
+          <div class="lineImg"></div>
+          <p>Over.ai delivers a unified customer care platform that improves customer experience and reduced cost while driving
+            key business results by harnessing the power of artificial intelligence. </p>
+        </div>
+        <div id="secendText">
+          <div>
+            <h3 class="mediumMediumBold">Conversational</h3>
+            <div class="lineImg"></div>
+            <p>Allows callers to speak freely, in full sentences and natural language</p>
+
+          </div>
+          <div>
+            <h3 class="mediumMediumBold">Personalized</h3>
+            <div class="lineImg"></div>
+            <p>Improves customer loyally with personalized greetings and flows</p>
+          </div>
+          <div>
+            <h3 class="mediumMediumBold">Accurate</h3>
+            <div class="lineImg"></div>
+            <p>Frees up live agents by accurately understanding complex user information</p>
+          </div>
+          <div>
+            <h3 class="mediumMediumBold">Integrated</h3>
+            <div class="lineImg"></div>
+            <p>With your CRM and internal systems</p>
+          </div>
+        </div>
+        <button (click)="goToCuntactUs()">APPLY FOR BETA</button>
+      </div>
+    </main>
+  </section>
+  
+  <section id="section4">
+    <main class="container">
+      <div class="context">
+        <div id="firstText">
+          <h1 class="headline">Business Phone AI driven <br/> personal assistant</h1>
+          <div class="lineImg"></div>
+          <p>Designed for simplicity and efficiency, Over.ai delivers a complete phone and front desk experience to create a
+            professional impression, delight users and save your time and money. </p>
+        </div>
+        <button (click)="goToCuntactUs()">APPLY FOR BETA</button>
+      </div>
+    </main>
+  </section>-->
+<!--<iframe #iframeComp width="0" height="0" [src]="appand | safe"></iframe>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<section>
+    <div id="homeHeader">
+      <div class="aiLogo"></div>
+      <div class="lineImg"> </div>
+      <p class="mediumMediumRegular">OVER.AI by i.am+ Introducing </p>
+      <p class="bodyHighLight">voice over Artificial Intelligence&trade;</p>
+    </div>
+    <!--<div class="arrow"></div>
+    <div id="infoBox">
+      <p class="mediumSmallBold"><strong>OVER.Ai</strong> delivers artificial intelligence that understands natural language to offer assistance, personalized
+        conversations, call answering, routing and message services.</p>
+    </div>
+  </section>
+  <section>
+    <div id="textOuterContainer">
+      <div id="textContainer">
+        <p class="headline">A.I. FOR YOUR BUSINESS</p>
+        <div class="lineImg"></div>
+        <p class="bodyHighLight">Phone Answering Service and Artificial Intelligence Voice Response - Your business personal assistant
+        </p>
+        <p class="defualtFontSize">Take your business to the next level with a confident, helpful and knowledgeable personal assistant that will impress
+          callers and ensures you never miss a business opportunity.</p>
+        <a class="tag" [routerLink]="['/account/business']">Read more</a>
+      </div>
+    </div>
+    <div id="imgRight" class="imgContainer"></div>
+  </section>
+  <section>
+    <div id="imgLeft" class="imgContainer"></div>
+    <div id="textSecendOuterContainer">
+      <div id="textSecendContainer">
+        <p class="headline">A.I. FOR CONTACT CENTERS</p>
+        <div class="lineImg"></div>
+        <p class="bodyHighLight">Artificial Intelligence deployed and always available across your unified communication solutions.
+        </p>
+        <p class="defualtFontSize">Harness the power of A.I. to provide voice and text support, answer questions in real time, and create follow up
+          events that feed into your CRM automatically.</p>
+        <a class="tag" [routerLink]="['/account/contact-us']">Contact us</a>
+      </div>
+    </div>
+  </section>
+  <section>   
+    <p class="bodyHighLight">already Using VoAI</p>
+    <div class="imgContainer"> 
+    </div> 
+  </section>
+  <section>
+    <contact-us></contact-us>
+  </section>
+</div>-->
+
+
+<!--<div id="sendMessageContainer">
+      <p class="headline">CONTACT US</p>
+      <div class="lineImg"> </div>
+      <p class="bodyHighLight">JOIN THE NEXT GENERATION OF VOICE RESPONSE</p>
+      <form #registerForm="ngForm" novalidate (ngSubmit)="sendMessageFunc(registerForm.valid, registerForm.value)">
+        <input id="focusable" type="text" name="name" [(ngModel)]="contact.Name" #contactName="ngModel" required minlength="2" placeholder="Company">
+        <small [hidden]="contactName.valid || (contactName.pristine && !registerForm.submitted)">Company name is required (minimum 2 characters).</small>
+        <input type="email" name="emailstr" [(ngModel)]="contact.Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          #email="ngModel" placeholder="E-Mail">
+          <small [hidden]="email.valid || (email.pristine && !registerForm.submitted)">Email is required and format should be <i>john@doe.com</i>.</small>
+          <textarea id="subject" name="subject" ref-textarea [(ngModel)]="contact.Message" #subject="ngModel" placeholder="Subject"
+            rows="3" required></textarea>
+            <small [hidden]="subject.valid || (subject.pristine && !registerForm.submitted)">Subject is required</small>
+            <button class="upperCaseBold" type="submit" [disabled]="!registerForm.valid">Send</button>
+            <div id="sentMessage" *ngIf="message">
+              <span class="bodyHighLight">{{message}}</span></div>
+      </form>
+    </div>-->
+<!--<div class="home">
+  <div id="sections">
+    <section class="homeFirstSection">
+      <div id="grreting">
+        <h1>INTRODUCING VOICE OVER ARTIFICIAL INTELLIGENCE&trade;</h1>
+        <p>OVER.Ai delivers artificial intelligence that understands natural language to offer assistance, personalized conversations,
+          call answering, routing and message services</p>
+        <button md-raised-button [routerLink]="['/company']" routerLinkActive="active" (click)="isHomeStatusChange(false)">GET STARTED</button>
+        <button [routerLink]="['/account/register']">GET STARTED</button>
+      </div>
+      <div class="arrow"></div>
+    </section>
+    <section id="homeSecendSection">
+      <div class="homeSecendContainer">
+        <div>
+          <img src="../images/personal_ic.png" alt="PERSONAL">
+          <span>A.I. FOR YOUR BUSINESS</span>
+          <img src="../images/lineImgGray.svg" alt="" class="lineImg">
+          <span>Phone Answering Service and Artificial Intelligence Voice Response - Your business personal assistant </span>
+          <p>Take your business to the next level with a confident, helpful and knowledgeable personal assistant that will impress
+            callers and ensures you never miss a business opportunity.</p>
+          <button [routerLink]="['/account/business']">Read more</button>
+        </div>
+        <div>
+          <img id="centerImg" src="../images/business_ic.png" alt="BUSINESS">
+          <span>A.I. FOR CONTACT CENTERS</span>
+          <img src="../images/lineImgGray.svg" alt="" class="lineImg">
+          <span>Artificial Intelligence deployed and always available across your unified communication solutions</span>
+          <p>Harness the power of A.I. to provide voice and text support, answer questions in real time, and create follow up
+            events that feed into your CRM automatically.</p>
+          <button (click)="focusNameInput($event)">Contact us</button>
+        </div>
+        <div *ngIf="false">
+          <img src="../images/developers_ic.png" alt="DEVELOPERS">
+          <span>VOICE A.I. FOR DEVELOPERS</span>
+          <img src="../images/lineImgGray.svg" alt="" class="lineImg">
+          <span>Give your chatbot a voice</span>
+          <p>Your chatbot can now be reached simply by calling</p>
+          <button [routerLink]="['/account/developers']">READ MORE</button>
+        </div>
+      </div>
+    </section>
+    <section id="homeThirdSection">
+      <div class="homeThirdContainer">
+        <span>INTELLIGENT VOICE RESPONSE</span>
+        <img src="../images/lineImgGray.svg" alt="" class="lineImg">
+        <p>Artificial Intelligence enables your unified communication system to reason, decide and ultimately act rationally,
+          while gaining knowledge using data from many different sources but also automatically learning from your own environment
+          in real time.</p>
+      </div>
+    </section>
+    <section id="homeFourthSection">
+      <div class="homeFourthContainer">
+        <span>CONTACT US</span>
+        <img src="../images/lineImgGray.svg" alt="" class="lineImg">
+
+        <form #registerForm="ngForm" novalidate (ngSubmit)="sendMessageFunc(registerForm.valid, registerForm.value)">
+          <input id="focusable" type="text" name="name" [(ngModel)]="contact.Name" #contactName="ngModel" required minlength="5" placeholder="Company">
+        <small [hidden]="contactName.valid || (contactName.pristine && !registerForm.submitted)">Company name is required (minimum 5 characters).</small>
+
+         <input type="email" name="emailstr" [(ngModel)]="contact.Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel" placeholder="E-Mail">
+         <small [hidden]="email.valid || (email.pristine && !registerForm.submitted)">Email is required and format should be <i>john@doe.com</i>.</small>
+
+         <textarea id="subject" ref-textarea [ngModel]="contact.Message" (ngModelChange)="contact.Message = $event" [ngModelOptions]="{standalone: true}" placeholder="Subject" rows="3" required></textarea>
+
+              <button type="submit" [disabled]="!registerForm.valid">GET STARTED NOW!</button>
+              <div id="sentMessage" *ngIf="message">
+                <span>{{message}}</span></div>
+        </form>
+      </div>
+    </section>
+    <section>
+      <account-footer></account-footer>
+    </section>
+  </div>
+</div>-->

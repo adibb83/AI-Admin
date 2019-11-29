@@ -1,0 +1,319 @@
+@import '../../../../../css/keyframes';
+@import '../../../../../css/variables';
+#businessLayout {
+  width: 100%;
+  position: relative;
+  @include flex-flow(column wrap);
+  justify-content: center;
+  align-items: center;
+  section {
+    width: 100%;
+    height: 100vh;
+    min-height: 50rem;
+    position: relative;
+    @include flex-flow(row wrap);
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $light6;
+    @include breakpoint(baby-bear) {
+      height: 80vh;
+      border-bottom: none;
+    }
+  }
+  .imgContainer {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  section:nth-child(1) {
+    display: block;
+    background-color: $main3;
+    #businessContainer {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      top: 0%;
+      @include flex-flow(row wrap);
+      justify-content: space-around;
+      background-color: $main3;
+      div {
+        width: 50%;
+        @include breakpoint(baby-bear) {
+          width: 95%;
+        }
+      }
+      #textOuterContainer {
+        position: relative;
+        #textContainer {
+          @include flex-flow(column nowrap);
+          justify-content: space-around;
+          align-items: flex-start;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%, -50%));
+          .tag::after {
+            border-bottom-color: $main3;
+            border-top-color: $main3;
+          }
+        }
+        @include breakpoint(child-bear) {
+          width: 100%;
+        }
+      }
+      #imgRight {
+        background-image: url(../images/readmoreBisA.svg);
+        height: 70%;
+        align-self: flex-end;
+        @include breakpoint(child-bear) {
+          display: none;
+        }
+      }
+    }
+    #infoBox {
+      background-color: $light1;
+      width: 75%;
+      height: 30%;
+      position: absolute;
+      bottom: -15%;
+      left: 50%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      @include border-radius(2px);
+      @include transform(translate(-50%, 0));
+      @include flex-flow(column nowrap);
+      justify-content: space-around;
+      align-items: center;
+      @include breakpoint(baby-bear) {
+        bottom: -40%;
+        height: 40%;
+      }
+      #infoHeader {
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      #infoBody {
+        width: 90%;
+        @include flex-flow(row nowrap);
+        justify-content: space-around;
+        align-items: center;
+        @include breakpoint(baby-bear) {
+          @include flex-flow(column nowrap);
+          width: 98%;
+        }
+        #infoLeft {
+          width: 80%;
+          @include flex-flow(column nowrap);
+          justify-content: space-around;
+          align-items: flex-start;
+          @include breakpoint(baby-bear) {
+            width: 98%;
+          }
+        }
+        #infoRight {
+          @include flex-flow(column nowrap);
+          justify-content: space-around;
+          align-items: center;
+          @include breakpoint(baby-bear) {
+            width: 98%;
+          }
+          div {
+            position: relative;
+            width: 90%;
+            @include flex-flow(row nowrap);
+            justify-content: space-between;
+            p {
+              width: 80%;
+              text-transform: lowercase;
+              font-style: italic;
+            }
+            i {
+              position: relative;
+              height: 20%;
+              align-self: center;
+            }
+          }
+        }
+      }
+      @include breakpoint(baby-bear) {
+        width: 100%;
+      }
+      // p {
+      //   text-align: center;
+      //   text-transform: uppercase;
+      //   position: absolute;
+      //   top: 50%;
+      //   @include transform(translate(0, -90%));
+      // }
+    }
+  }
+  section:nth-child(2) {
+    height: 80vh;
+    @include breakpoint(baby-bear) {
+      height: 110vh;
+    }
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+      @include flex-flow(column nowrap);
+      justify-content: space-around;
+      align-items: center;
+      @include breakpoint(baby-bear) {
+        top: 60%;
+        width: 95%;
+      }
+      p {
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+  }
+  #pricingSection {
+    min-height: 55rem;
+  }
+}
+
+.imgContainer {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.textOuterContainer {
+  .textContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+
+.imgContainer {
+  @include breakpoint(baby-bear) {
+    display: none;
+  }
+}
+
+// #sections {
+//     position: relative;
+//     width: 100%;
+//     height: calc(100% - 80px);
+//     overflow-y: auto;
+//     font-family: "FlamaSemicondensed";
+//     section {
+//         border-bottom: 1px solid #c1c1c1;
+//     }
+//     .container {
+//         width: 80%;
+//         margin: auto;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         padding: 65px;
+//     }
+//     h1,
+//     strong,
+//     span {
+//         font-family: "FlamaSemicondensed-Bold";
+//     }
+//     strong {
+//         font-size: $mediumFontSize;
+//     }
+//     p {
+//         color: $homeGreetingTextColor;
+//         word-wrap: break-word;
+//         text-align: center;
+//         margin-top: 0;
+//     }
+//     button {
+//         background-color: $homePageButtonColor;
+//         @include border-radius(5px);
+//         font-weight: 600;
+//         font-size: 18px;
+//         color: #242a2c;
+//         width: 210px;
+//         height: 40px;
+//         margin-top: 30px;
+//     }
+//     .lineImg {
+//         width: 39px !important;
+//         height: 7px !important;
+//         background-color: #c1c1c1;
+//         margin: 30px;
+//     }
+//     #firstSection {
+//         position: relative;
+//         height: 820px;
+//         background-image: url("../images/BuisnessBackground.svg");
+//         background-repeat: no-repeat;
+//         background-position-x: center;
+//         background-position: bottom;
+//         background-size: cover;
+//         overflow: hidden;
+//         .container {
+//             position: absolute;
+//             top: 40%;
+//             left: 10%;
+//             transform: translate(0, -50%);
+//             align-items: flex-start;
+//             h1 {
+//                 font-size: 2.5em;
+//                 margin: 0;
+//             }
+//             strong {
+//                 font-size: 2em;
+//             }
+//             p {
+//                 margin-top: 5px;
+//             }
+//         }
+//     }
+//     #secendSection {
+//         .container {
+//             img {
+//                 width: 100px;
+//                 height: 100px;
+//                 padding: 30px;
+//             }
+//             p {
+//                 width: 40%;
+//             }
+//         }
+//     }
+//     #thirdSection {
+//         #circlesContainer {
+//             display: flex;
+//             flex-direction: row;
+//             justify-content: space-between;
+//             align-items: center;
+//             background-image: url("../images/buisnessBenfitBackImg.png");
+//             background-repeat: no-repeat;
+//             background-position: center;
+//             background-size: contain;
+//             div {
+//                 width: 360px;
+//                 height: 460px;
+//                 position: relative;
+//                 display: flex;
+//                 flex-direction: row;
+//                 justify-content: center;
+//                 align-items: center;
+//                 p {
+//                     width: 60%;
+//                     margin: auto;
+//                 }
+//                 #ivr{padding-left: 25px;}
+//                 #cost{padding-right: 25px;}
+//             }
+//         }
+//     }
+//     #fourthSection {
+//         background-color: #c1c1c1;
+//         p {
+//             width: 50%;
+//         }
+//     }
+// }

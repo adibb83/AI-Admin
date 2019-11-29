@@ -1,0 +1,97 @@
+ @import '../../../../css/keyframes';
+ @import '../../../../css/variables';
+ .imgContainer {
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: center;
+ }
+ 
+ #fotter {
+   background-color: $light4;
+   font-family: $font-flama;
+   width: 100%;
+   .fotterContainer {
+     width: 45%;
+     margin: auto;
+      @include breakpoint(child-bear) {
+      width: 70%;
+     }
+     @include breakpoint(baby-bear) {
+      width: 100%;
+     }
+     #context {
+       @include flex-flow(row wrap);
+       justify-content: space-between;
+       align-items: flex-end;
+       padding: 2rem 5rem;
+       @include breakpoint(baby-bear) {
+         padding: 1rem;
+       }
+       a {
+         text-decoration: none;
+         color: $dark5;
+       }
+     }
+     //  #getInTouch {
+     //    img {
+     //      padding: 1.2rem;
+     //      cursor: pointer;
+     //      @include breakpoint(baby-bear) {
+     //        height: 1.5rem;
+     //      }
+     //    }
+     //  }
+     //  #fotterTable {
+     //    @include flex-flow(row wrap);
+     //    justify-content: space-around;
+     //    align-items: baseline;
+     //    width: 80vw;
+     //    @include breakpoint(baby-bear) {
+     //      @include flex-flow(column wrap);
+     //      align-items: center;
+     //      margin-top: 3rem;
+     //    }
+     //    .line {
+     //      width: 100% !important;
+     //      height: 0.2rem !important;
+     //      margin: 0.2rem 0;
+     //      background-color: $dark5;
+     //      @include breakpoint(baby-bear) {
+     //        margin: 0.5rem 0;
+     //      }
+     //    }
+     //    div {
+     //      table {
+     //        text-align: left;
+     //        width: 12rem;
+     //        color: $light5;
+     //        @include breakpoint(baby-bear) {
+     //          text-align: center;
+     //          padding-top: 1rem;
+     //        }
+     //        tr {
+     //          th {
+     //            font-weight: 600;
+     //            text-transform: uppercase;
+     //            background-color: inherit;
+     //            padding: 5px;
+     //            color: #bbc6d3;
+     //          }
+     //          td {
+     //            color: #bbc6d3;
+     //            min-width: 150px;
+     //            padding-top: 10px;
+     //            cursor: pointer;
+     //            height: 1.7rem;
+     //            border: none;
+     //            a {
+     //              color: #bbc6d3;
+     //              text-decoration: none;
+     //            }
+     //          }
+     //        }
+     //      }
+     //    }
+     //  }
+   }
+ }

@@ -1,0 +1,50 @@
+
+<div class="pageContainer">
+  <div class="headerDiv">
+    <h1 class="pagesHeader">Call Log</h1>
+  </div>
+  <table class="headerTable  questionMarkTable">
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <md-select [(ngModel)]="searchParams.timeRange" name="date">
+              <md-option *ngFor="let date of dates" [value]="date.value">
+                {{date.viewValue}}
+              </md-option>
+            </md-select>
+          </form>
+        </td>
+        <td>Sentiment: Positive +6</td>
+        <td>Export</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <line-chart [data]="chartData" *ngIf="chartData"></line-chart>
+  <br>
+  <table id="callsTable">
+    <thead>
+      <tr>
+        <th>Contact</th>
+        <th>Time</th>
+        <th>Duration</th>
+        <th>From - To</th>
+        <th>Status</th>
+        <th>Recording</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let call of callLog.calls">
+        <td><a [routerLink]="['/pages', 'calls', 'details', call.sid]">{{call?.Contact || call?.from}}</a></td>
+        <td>{{call?.endTime | date: 'HH:mm:ss'}}</td>
+        <td>{{call?.duration}}</td>
+        <td>from:{{call?.from}}<br/>
+            to:{{call?.to}}
+        </td>
+        <td>{{call?.status}}</td>
+        <td>{{call?.recordingURL}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

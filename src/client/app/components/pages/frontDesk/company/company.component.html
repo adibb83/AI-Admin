@@ -1,0 +1,279 @@
+<div class="pageContainer">
+  <save-changes-panel style="width: 100%; position: absolute; left: 0%; z-index: 500;" (yesNoAnswer)="yesNoSaveChanges($event)"
+    [style.top]="getYposition()" *ngIf="showSaveBanner"></save-changes-panel>
+  <form (keydown.enter)="$event.preventDefault()" (ngSubmit)="save(companyEditForm.valid ,companyEditForm.value)" #companyEditForm="ngForm"
+    novalidate>
+    <div class="headerDiv">
+      <h1 class="pagesHeader pagesHeaderInput">FRONT DESK</h1>
+      <button class="defualtButtonSave" type="submit">SAVE</button>
+    </div>
+
+    <table class="headerTable">
+      <tr>
+        <td>Add information about your business and services. Your virtual receptionist will be able to save you time and use
+          this information to answer customer inquiries.
+        </td>
+      </tr>
+    </table>
+
+    <table id="virtualPhoneTable">
+      <thead>
+        <tr>
+          <th>Virtual Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>{{companyObj?.VirtualPhone}}</strong><a id="showInstraction" (click)="redirectToChangeNumber()">Change number</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+    <table class="towRowsTable">
+      <thead>
+        <tr>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="CompanyName" [ngModel]="companyObj?.Name" (ngModelChange)="companyObj.Name = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}" placeholder="Company Name." required> </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <span>Industry:</span>
+              <md-select placeholder="Select industry" [ngModel]="companyObj?.Industry" (ngModelChange)="companyObj.Industry = $event; haveChanges();"
+                [ngModelOptions]="{standalone: true}">
+                <md-option *ngFor="let industrie of industries" [value]="industrie.Name">{{industrie.Name}}</md-option>
+              </md-select>
+            </div>
+            <div>
+              <span>Time Zone:</span>
+              <md-select placeholder="Select Time Zone" [ngModel]="companyObj?.TimeZone" (ngModelChange)="companyObj.TimeZone = $event; haveChanges();"
+                [ngModelOptions]="{standalone: true}">
+                <md-option *ngFor="let zone of timeZones" [value]="zone.gmt">{{zone.gmt}}</md-option>
+              </md-select>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+    <table class="towRowsTable">
+      <thead>
+        <tr>
+          <th>FRONT DESK</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="FrontDeskIntro" [ngModel]="companyObj?.FrontDeskIntro" (ngModelChange)="companyObj.FrontDeskIntro = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}" placeholder="Enter Front Desk Intro." required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <span>Language:</span>
+              <md-select placeholder="Select language" [ngModel]="companyObj?.Language" (ngModelChange)="companyObj.Language = $event; haveChanges();"
+                [ngModelOptions]="{standalone: true}">
+                <md-option *ngFor="let lng of lang" [value]="lng.Code">{{lng.EnglishName}}</md-option>
+              </md-select>
+            </div>
+            <div>
+              <span style="min-width: 9rem;">Front Desk Name:</span>
+              <input type="text" name="FrontDeskName" [ngModel]="companyObj?.FrontDeskName" (ngModelChange)="companyObj.FrontDeskName = $event; haveChanges();"
+                [ngModelOptions]="{standalone: true}" placeholder="Enter Front Desk Name." required>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+    <table id="fallbackTable">
+      <thead>
+        <tr>
+          <th>Fallback</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div>
+              <span>Fallback number:</span>
+              <input type="text" #fallbackNumber="ngModel" name="FallbackNumber" [ngModel]="companyObj?.FallbackNumber" (ngModelChange)="companyObj.FallbackNumber = $event; haveChanges();"
+                placeholder="Enter Fallback Number." pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$">
+            </div>
+            <div>
+              <span>Fallback eMail:</span>
+              <input type="text" #messageEmail="ngModel" name="MessageEmail" [ngModel]="companyObj?.MessageEmail" (ngModelChange)="companyObj.MessageEmail = $event; haveChanges();"
+                placeholder="Enter Email To Leave Message." pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <small [class.smallHidden]="!fallbackNumber.valid && companyEditForm.submitted">phone not in a correct format! example: +15555323455 , +9725555323455  </small>
+    <small [class.smallHidden]="!messageEmail.valid && companyEditForm.submitted">Email format should be <i>john@doe.com</i>.</small>
+  </form>
+</div>
+
+
+
+
+<!--
+   <table class="questionMarkTable">
+      <thead>
+        <tr>
+          <th colspan="2">
+            Greetings
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="FrontDeskIntro" [ngModel]="companyObj?.FrontDeskIntro" (ngModelChange)="companyObj.FrontDeskIntro = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}" placeholder="Enter Front Desk Intro." required>
+          </td>
+          <td><i class="material-icons">help_outline</i></td>
+        </tr>
+      </tbody>
+    </table>
+  <table>
+      <thead>
+        <tr>
+          <th>Front Desk Name</th>
+          <th>FRONT DESK LANGUAGE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 50%;"> <input type="text" name="FrontDeskName" [ngModel]="companyObj?.FrontDeskName" (ngModelChange)="companyObj.FrontDeskName = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}" placeholder="Enter Front Desk Name." required></td>
+          <td style="width: 50%; padding-left: 5px;">
+            <md-select placeholder="Select language" [ngModel]="companyObj?.Language" (ngModelChange)="companyObj.Language = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}">
+              <md-option *ngFor="let lng of lang" [value]="lng.Code">{{lng.EnglishName}}</md-option>
+            </md-select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   <table>
+      <thead>
+        <tr>
+          <th>Company name</th>
+          <th>INDUSTRY</th>
+          <th>Time zone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width: 33.3%;"><input type="text" name="CompanyName" [ngModel]="companyObj?.Name" (ngModelChange)="companyObj.Name = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}" placeholder="Company Name." required></td>
+          <td style="width: 33.3%; padding-left: 5px;">
+            <md-select placeholder="Select industry" [ngModel]="companyObj?.Industry" (ngModelChange)="companyObj.Industry = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}">
+              <md-option *ngFor="let industrie of industries" [value]="industrie.Name">{{industrie.Name}}</md-option>
+            </md-select>
+          </td>
+          <td style="width: 33.3%; padding-left: 5px;">
+            <md-select placeholder="Select Time Zone" [ngModel]="companyObj?.TimeZone" (ngModelChange)="companyObj.TimeZone = $event; haveChanges();"
+              [ngModelOptions]="{standalone: true}">
+              <md-option *ngFor="let zone of timeZones" [value]="zone.gmt">{{zone.gmt}}</md-option>
+            </md-select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  
+  
+  
+  <div id="headerDiv">
+  <div class="hader">
+    <h1>FRONT DESK INFO</h1>
+    <p>customize your virtual receptionist’s name and greeting.
+    </p>
+    <div id="edit">
+      <button md-raised-button class="editButton" type="submit" (click)="save()">SAVE</button>
+    </div>
+    <div id="circularG" *ngIf="showLoader || !companyObj">
+      <div id="circularG_1" class="circularG"></div>
+      <div id="circularG_2" class="circularG"></div>
+      <div id="circularG_3" class="circularG"></div>
+      <div id="circularG_4" class="circularG"></div>
+      <div id="circularG_5" class="circularG"></div>
+      <div id="circularG_6" class="circularG"></div>
+      <div id="circularG_7" class="circularG"></div>
+      <div id="circularG_8" class="circularG"></div>
+    </div>
+  </div>
+</div>
+<div id="content" *ngIf="companyObj">
+  <form>
+    <table>
+      <tr>
+        <td>
+          <span style="padding: 0;">Virtual Phone Number:</span> <br>
+          <strong>{{companyObj.VirtualPhone}}</strong><br>
+          <div><a id="showInstraction" href="../assets/pdf/Set_Call_Diversion.pdf">How to set call diversion</a></div>
+          <div *ngIf="false"><a id="showInstraction" (click)="openDialog()">Change Virtual number</a></div>
+        </td>
+        <td>
+          <span>Front Desk Name:</span> <br>
+          <input type="text" name="FrontDeskName" [ngModel]="companyObj?.FrontDeskName" (ngModelChange)="companyObj.FrontDeskName = $event; haveChanges();"
+            [ngModelOptions]="{standalone: true}" placeholder="Enter Front Desk Name." required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+        <td>
+          <span>Front Desk Intro:</span> <br>
+          <textarea ref-textarea [ngModel]="companyObj.FrontDeskIntro" (ngModelChange)="companyObj.FrontDeskIntro = $event; haveChanges();" [ngModelOptions]="{standalone: true}" rows="10" placeholder="Enter Front Desk Intro. example: hello i am aneeda. how can i help you?"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <span>Fallback number:</span><br>
+          <input type="text" name="FallbackNumber" [ngModel]="companyObj?.FallbackNumber" (ngModelChange)="companyObj.FallbackNumber = $event; haveChanges();"
+            [ngModelOptions]="{standalone: true}" placeholder="Enter Fallback Number." required>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <span>Get messages to email:</span><br>
+          <input type="text" name="MessageEmail" [ngModel]="companyObj?.MessageEmail" (ngModelChange)="companyObj.MessageEmail = $event; haveChanges();"
+            [ngModelOptions]="{standalone: true}" placeholder="Enter Email To Leave Message." required>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <span>Get messages via SMS to mobile number:</span><br>
+          <input type="text" name="MessagePhone" [ngModel]="companyObj?.MessagePhone" (ngModelChange)="companyObj.MessagePhone = $event; haveChanges();"
+            [ngModelOptions]="{standalone: true}" placeholder="Enter Phone To Send Message SMS." required>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>-->

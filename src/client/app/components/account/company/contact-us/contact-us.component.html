@@ -1,0 +1,123 @@
+ <section id="contactContainer" class="publicBackImg">    
+ <div id="sendMessageContainer">
+      <p class="headline">CONTACT US</p>
+      <div class="lineImg"> </div>
+      <p class="bodyHighLight">JOIN THE BETA OF THE NEXT GENERATION VOICE RESPONSE</p>
+      <form #registerForm="ngForm" novalidate (ngSubmit)="sendMessageFunc(registerForm.valid, registerForm.value)">
+        <input id="focusable" type="text" name="name" [(ngModel)]="contact.Name" #contactName="ngModel" required minlength="2" placeholder="Company">
+        <small [class.smallHidden]="!contactName.valid  && registerForm.submitted">Company name is required (minimum 2 characters).</small>
+        <input type="email" name="emailstr" [(ngModel)]="contact.Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          #email="ngModel" placeholder="E-Mail">
+          <small [class.smallHidden]="!email.valid && registerForm.submitted">Email is required and format should be <i>john@doe.com</i>.</small>
+       
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      [[[=[\
+      && registerForm.submitted">Subject is required</small>
+            <button class="upperCaseBold" type="submit">Send</button>
+            <div id="sentMessage" *ngIf="message">
+             {{message}}</div>
+      </form>
+    </div>
+    </section>
+    <account-footer></account-footer>

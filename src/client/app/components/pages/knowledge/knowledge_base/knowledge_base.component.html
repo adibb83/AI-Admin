@@ -1,0 +1,94 @@
+<div class="pageContainer">
+  <div class="headerDiv">
+    <h1 class="pagesHeader">KNOWLEDGE</h1>
+  </div>
+  <table class="headerTable  questionMarkTable">
+    <tr>
+      <td>Add information about your business and services. Your virtual receptionist will be able to save you time and use this
+        information to answer customer inquiries.</td>
+      <td><i class="material-icons">help_outline</i></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td> <input #search type="text" (keyup)="0" placeholder="filter by knowledge name"></td>
+    </tr>
+  </table>
+  <table class="knowledgeMainTable" *ngIf="templateKnowledgeArray?.length > 0">
+    <thead>
+      <tr>
+        <th>Predefined Subjects</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let temlateKnowledge of templateKnowledgeArray | searchInputFilter:search.value:'Name'; let templateIndex = index;">
+        <td (click)="showSelectedknowledge(temlateKnowledge ,templateIndex)">{{temlateKnowledge?.Name}}</td>
+        <td>
+          <md-slide-toggle [color]="color" (change)="KnowledgeStateChanged(temlateKnowledge)" [(ngModel)]="temlateKnowledge.IsEnabled"></md-slide-toggle>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="CreateNewButton" (click)="addNewSubject()"><button md-button>CLICK TO ADD NEW SUBJECT</button></div>
+
+  <table class="knowledgeMainTable" *ngIf="userKnowledgeArray?.length > 0">
+    <thead>
+      <tr>
+        <th>my Subjects</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userKnowledge of userKnowledgeArray| searchInputFilter:search.value:'Name'; let userIndex = index;">
+        <td (click)="showSelectedknowledge(userKnowledge ,userIndex)">{{userKnowledge?.Name}}</td>
+        <td><i class="material-icons" (click)="deleteKnowlageBase(userIndex)">delete_forever</i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+<!--<div id="mainLayout">
+  <div id="hader">
+    <h1>KNOWLEDGE</h1>
+    <p>Add information about your business and services. Your virtual receptionist will be able to save you time and use this
+      information to answer customer inquiries. </p>
+    <button class="headerAddNewBut" (click)="addNewSubject()">+ NEW SUBJECT</button>
+     <div id="circularG" *ngIf="!KnowledgeArray">
+      <div id="circularG_1" class="circularG"></div>
+      <div id="circularG_2" class="circularG"></div>
+      <div id="circularG_3" class="circularG"></div>
+      <div id="circularG_4" class="circularG"></div>
+      <div id="circularG_5" class="circularG"></div>
+      <div id="circularG_6" class="circularG"></div>
+      <div id="circularG_7" class="circularG"></div>
+      <div id="circularG_8" class="circularG"></div>
+    </div>
+    <!--<div class="cssload-container" *ngIf="!KnowledgeArray">
+      <div class="loading6"></div>
+    </div>-->
+<!--<div class="block" *ngIf="!KnowledgeArray">
+      <div class="loader"></div>
+    </div>
+  </div>
+  <div class="container" *ngIf="KnowledgeArray">
+     <perfect-scrollbar id="KnowledgeButtons" >
+      <ul>
+        <li *ngFor="let knowledge of KnowledgeArray; let i = index;" (click)="showSelectedknowledge(knowledge ,i)" [class.active]="selectedRow == i">
+          <div class="arrow-right" *ngIf="selectedRow == i"></div><span>{{knowledge?.Header}}</span>
+        </li>
+      </ul>
+    </perfect-scrollbar>
+    <div id="knowledgeEntityContainer">
+      <knowledgeEntity class="knowledgeEntity" [knowledgeInfo]="selectedKnowledge" [isEdit]="isEdit" (delete)="deleteKnowlageBase($event,selectedRow)"
+        (KnowlageChange)="haveChanges($event)"></knowledgeEntity>
+        <!--<form-info class="formInfo" [formData]="selectedForm" [isEdit]="isEdit" (delete)="deleteForm($event,selectedRow)" ></form-info>
+    </div>
+  </div>
+</div>-->

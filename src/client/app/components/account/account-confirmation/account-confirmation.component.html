@@ -1,0 +1,17 @@
+<div class="defualtPageLayout" >
+    <div class="defualtHeader">
+        <h1>Account confirmation</h1>
+        <p>
+            
+        </p>
+    </div>
+    <div>
+       
+        <h2 *ngIf="!success && !error">Confirming account</h2>
+         <p>
+            {{success || error}}
+        </p>
+        <a *ngIf="success" [routerLink]="['/account/login']">Continue to log in page</a>
+    </div>
+     <div class="syncLoader" style="position: absolute; left:50%; top:50%;" *ngIf="!success && !error"></div>
+</div>

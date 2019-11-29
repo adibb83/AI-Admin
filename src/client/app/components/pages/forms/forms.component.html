@@ -1,0 +1,25 @@
+<div id="forms">
+    <div class="block" *ngIf="!formsList">
+    <div class="loader"></div>
+</div>
+    <div id="hader">
+        <h1>Forms</h1>
+        <p>Set up forms that will be used by your virtual receptionist to automatically collect customer information, surveys, billing information etc.</p>
+        <button class="headerAddNewBut" (click)="addNewform()">+ Add New Form</button>
+    </div>
+    <div id="formsLayout" *ngIf="formsList">
+        <div id="formButtons">
+           <ul>    
+                <li *ngFor="let formInfo of formsList; let i = index;" (click)="showSelectedForm(formInfo ,i)" [class.active]="selectedRow == i">    
+                    <div class="arrow-right" *ngIf="selectedRow == i"></div><span>{{formInfo?.name}}</span>
+                </li>
+            </ul>
+        </div>
+        <div id="formInfoContainer">
+            <form-info class="formInfo" [formData]="selectedForm" [isEdit]="isEdit" (delete)="deleteForm($event,selectedRow)" ></form-info>
+        </div>
+    </div>
+
+    
+
+</div>

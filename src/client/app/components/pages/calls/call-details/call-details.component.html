@@ -1,0 +1,36 @@
+<h1>DETAILS</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Contact name</th>
+      <th>Total call Duration</th>
+      <th>Front desk duration</th>
+      <th>Classification</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{data.Name}}</td>
+      <td>{{data.TotalCallDurationInSeconds}}</td>
+      <td>{{data.FrontDeskDurationInSeconds}}</td>
+      <td>{{data}}</td>
+      <td>{{data}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let action of data.Actions">
+      <td><input type="text" [(ngModel)]="action.Value"></td>
+    </tr>
+  </tbody>
+</table>

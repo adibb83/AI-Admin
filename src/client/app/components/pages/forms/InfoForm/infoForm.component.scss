@@ -1,0 +1,64 @@
+@import '../../../../../css/keyframes';
+@import '../../../../../css/variables';
+#infoForm {
+    position: relative;
+    width: 100%;
+    #actionButtons {
+        position: absolute;
+        right: 0%;
+        text-align: right;
+       
+    } 
+    table {
+        margin-top: 10px;
+        width: 99%;
+        font-size: $smallFontSize;
+        table-layout: fixed;
+        tr {
+            td {
+                input {
+                    border-radius: 5px;
+                    width: 80%;
+                }
+                #fieldsHeder {
+                    font-weight: bolder;
+                }
+                #formName {
+                    font-size: $bigFontSize;
+                    color: $main-Pink;
+                    input {
+                        width: 98% !important;
+                    }
+                }
+                #email {
+                    font-size: $mediumFontSize;
+                    input {
+                        width: 98% !important;
+                        ;
+                    }
+                }
+                span {
+                    padding: 15px;
+                    color: $inputLableColor;
+                    i {
+                        vertical-align: sub;
+                    }
+                }
+                .validatorOK {
+                    opacity: 0.2;
+                }
+            }
+        }
+        #emailrow {
+            td {
+                border-bottom: 1pt solid $componentBorderGray;
+            }
+        }
+    }
+    #premadeFeildes {
+        padding: 5px;
+         :nth-child(1) {
+            font-weight: bold;
+        }
+    }
+}

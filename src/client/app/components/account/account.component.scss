@@ -1,0 +1,72 @@
+@import '../../../css/keyframes';
+@import '../../../css/variables';
+#account {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .header {
+    background-color: inherit;
+    width: 100%;
+    position: relative;
+    height: 5rem;
+    top: 0%;
+    z-index: 500;
+    #logo {
+      position: absolute;
+      top: 50%;
+      left: 4%;
+      transform: translate(0, -50%);
+      width: 4rem;
+      height: 3rem;
+      background-image: url(../images/blackOAI.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 1rem;
+        text-decoration: none;
+        
+      }
+
+    }
+    #navLog {
+      position: absolute;
+      top: 50%;
+      right: 4%;
+      transform: translate(0, -50%);
+      a {
+        cursor: pointer;
+        color: #242a2c;
+        text-decoration: none;
+        padding: 0.6rem 1.3rem;;
+        margin: 0.2rem;
+        border-radius: 0.2rem;
+        &:hover {
+          background-color: $light2;
+        }
+      }
+       .active {
+          color: $main5;
+        }
+      .singUp {
+        background-color: white;
+        box-shadow: 3px 5px 10px #888888;
+      }
+    }
+  }
+  .content-container {
+    height: calc(100% - 5rem);
+    overflow-y: auto;
+    overflow: -moz-scrollbars-none;
+    .content-area {
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 0px !important;
+        display: none;
+      }
+    }
+  }
+}

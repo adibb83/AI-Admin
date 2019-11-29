@@ -1,0 +1,43 @@
+<div id="infoForm">
+    <div id="actionButtons">
+        <button *ngIf="!isEdit" class="editButton" (click)="isEdit = !isEdit"><img src='../images/editPencil.svg'> Edit</button>
+        <button *ngIf="isEdit" class="editButton" (click)="save();isEdit = !isEdit"><img src='../images/pencil-striped-symbol-for-interface-edit-buttons.svg'> Save</button>
+        <button *ngIf="isEdit" class="editButton" (click)="delete.emit(); isEdit = !isEdit"><img src='../images/delete-button.svg'> Delete</button>
+        <button *ngIf="isEdit" class="editButton" (click)="isEdit = !isEdit"><img src='../images/exit.png'> Cancel</button>
+    </div>
+    <table  cellspacing="0">
+        <tr>
+            <td colspan="2">
+                <span>Form name:</span>
+                <input style="width: 99%;" type="text" name="name" [ngModel]="formData?.name" (ngModelChange)="formData.name= $event" [ngModelOptions]="{standalone: true}"
+                    placeholder="Enter form name" [disabled]="!isEdit" [class.InputEditMode]="isEdit" required>
+            </td>
+        </tr>
+        <tr id="emailrow">
+            <td colspan="2">
+                <span>Form Email:</span>
+                <input type="text" name="Email" [ngModel]="formData?.email" (ngModelChange)="formData.email = $event" [ngModelOptions]="{standalone: true}"
+                    placeholder="Enter email" style="width: 99%;" [disabled]="!isEdit" [class.InputEditMode]="isEdit" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="fieldsHeder">Form fields:</span>
+            </td>
+        </tr>
+        <tr *ngFor="let formField of formData?.FormFields; let i = index; trackBy:customTrackBy">
+            <td colspan="2">
+                <input type="text" name="formField.fieldName" [ngModel]="formField?.value" (ngModelChange)="formField.value = $event" [ngModelOptions]="{standalone: true}"
+                    placeholder="Enter {{formField.fieldName}}" (keyup.enter)="onEnter(i);" [disabled]="!isEdit" [class.InputEditMode]="isEdit"
+                    required>
+                    <span [class.validatorOK]="formField.value != ''"><i class="material-icons md-24">lock_outline</i> {{formField.validationType}}</span>
+            </td>
+        </tr>
+    </table>
+    <div *ngIf="isEdit" id="premadeFeildes">
+        <span>Add Premade Fields:</span> <br>
+        <span>+ Personal information</span> <br>
+        <span>+ Customer satisfaction</span> <br>
+        <span>+ Scheduling</span>
+    </div>
+</div>

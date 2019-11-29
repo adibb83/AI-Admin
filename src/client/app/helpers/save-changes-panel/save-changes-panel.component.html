@@ -1,0 +1,5 @@
+
+<div id="saveYesNo"   [@tableState]="true">
+  <div>Changes were detected do you want to save?</div>
+  <div><button  (click)="yesNoAnswer.emit(true)">SAVE</button><button (click)="yesNoAnswer.emit(false)">CANCEL</button></div>
+</div>

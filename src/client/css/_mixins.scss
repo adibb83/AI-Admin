@@ -1,0 +1,126 @@
+
+@mixin border-radius($r) {
+  -webkit-border-radius: $r;
+     -moz-border-radius: $r;
+      -ms-border-radius: $r;
+          border-radius: $r;
+}
+
+@mixin transition($t...) {
+  -webkit-transition: $t;
+     -moz-transition: $t;
+       -o-transition: $t;
+          transition: $t;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+
+@mixin flex-flow($flow) {
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-flow: $flow; /* Safari 6.1+ */
+    display: flex;
+    flex-flow: $flow;
+}
+
+@mixin flex($flex) {
+    -webkit-flex: $flex; /* Safari 6.1+ */
+    -ms-flex: $flex; /* IE 10 */
+     flex: $flex;
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin animation-delay($str) {
+  -webkit-animation-delay: #{$str};
+  -moz-animation-delay: #{$str};
+  -ms-animation: #{$str};
+  -o-animation-delay: #{$str};
+  animation-delay: #{$str};      
+}
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin noselect() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}

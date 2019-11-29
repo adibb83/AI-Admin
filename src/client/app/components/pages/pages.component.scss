@@ -1,0 +1,255 @@
+@import '../../../css/keyframes';
+@import '../../../css/variables';
+@import '../../../css/breakpoints';
+#mainPageLayout {
+  width: 100%;
+  #mobileMenu {
+    background-color: $main4;
+    z-index: 999;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    min-height: 3rem;
+    @include breakpoint(baby-bear) {
+      @include flex-flow(row nowrap);
+      justify-content: space-around;
+      align-items: center;
+    }
+    a {
+      img {
+        height: 2rem;
+      }
+    }
+  }
+  .hamburger {
+    display: block;
+    //position: relative;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 4rem;
+    height: 2rem;
+    font-size: 0;
+    text-indent: -9999px;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: 0;
+  }
+  .hamburger span {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    height: 0.2rem;
+    background: $dark1;
+  }
+  .hamburger span::before,
+  .hamburger span::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    height: 0.2rem;
+    background-color: $dark1;
+    content: "";
+  }
+  .hamburger span::before {
+    width: 70%;
+    top: -0.5rem;
+  }
+  .hamburger span::after {
+    width: 40%;
+    bottom: -0.5rem;
+  }
+  aside {
+    height: 100vh;
+    width: 15rem;
+    position: fixed;
+    border: 1px solid $light3;
+    z-index: 100;
+    right: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $light4;
+    // @include flex-flow(column nowrap);
+    // align-items: flex-start;
+    ul {
+      width: 100%;
+      padding: 0;
+      @include breakpoint(baby-bear) {
+        padding-top: 2rem;
+      }
+      li:nth-child(1) {
+        //border-bottom: 2px solid $light3;
+        @include breakpoint(baby-bear) {
+          display: none;
+        }
+        padding: 1rem 0;
+        &:hover {
+          background-color: $light4;
+        }
+      }
+      li:last-child {
+        position: absolute;
+        bottom: 5%;
+      }
+      li {
+        position: relative;
+        height: 4rem;
+        width: 100%;
+        text-align: center;
+        @include flex-flow(column nowrap);
+        justify-content: center;
+        align-items: baseline;
+        a {
+          text-align: left;
+          text-transform: uppercase;
+          cursor: pointer;
+          outline: none;
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          height: 100%;
+          line-height: 400%;
+          color: $light3;
+          padding-left: 2rem;
+          font-weight: 600;
+        }
+        .active {
+          font-weight: bold;
+          color: $light1;
+          background-color: $dark3;
+        }
+        &:hover {
+          background-color: $light2;
+        }
+      }
+    }
+  }
+  .content-container {
+    height: 100vh;
+    margin-left: 15rem;
+    width: calc(100% - 15rem);
+    overflow-y: auto;
+    @include breakpoint(baby-bear) {
+      margin-left: 0;
+      width: 100%;
+      height: calc(100vh - 3rem);
+    }
+    .content-area {
+      width: 90%;
+      margin: auto;
+      background-color: inherit;
+      @include breakpoint(baby-bear) {
+        width: 95%;
+      }
+    }
+  }
+  #MessageBanner {
+    z-index: 500;
+    @include flex-flow(column nowrap);
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    color: $DefualtTextwhite;
+    opacity: 0.9;
+    min-width: 10rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 8rem);
+    @include transform(translate(-50%, -50%));
+    @include border-radius(8px);
+    @include animation(fadeIn 0.5s);
+    @include breakpoint(baby-bear) {
+      left: 50%;
+    }
+    p {
+      text-align: center;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.modal {
+  left: calc(50% + 8rem);
+  @include breakpoint(child-bear) {
+    .spinner {
+      padding-top: 19px;
+      height: 35px;
+    }
+  }
+  @include breakpoint(baby-bear) {
+    left: 50%;
+    .spinner {
+      padding-top: 19px;
+      height: 35px;
+    }
+  }
+}
+
+small {
+  float: left;
+}
+
+// div:nth-child(1) {
+//  // border-bottom: 2px solid $light3;
+//   padding: 1rem 0;
+// }
+// div:last-child {
+//   position: absolute;
+//   bottom: 5%;
+// }
+// div {
+//   position: relative;
+//   height: 4rem;
+//   width: 100%;
+//   text-align: center;
+//   @include flex-flow(column nowrap);
+//   justify-content: center;
+//   align-items: baseline;
+//   a {
+//     text-align: left;
+//     text-transform: uppercase;
+//     cursor: pointer;
+//     outline: none;
+//     text-decoration: none;
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     line-height: 400%;
+//     color: $dark3;
+//     padding-left: 2rem;
+//   }
+//   .active {
+//     font-weight: bold;
+//     color: black;
+//     background-color: $main3;
+//   }
+//   &:hover {
+//     background-color: $light2;
+//   }
+// md-toolbar,
+// md-nav-list {
+//   padding-top: 0;
+//   md-list-item {
+//     .md-list-item{
+//       padding: 0 !important;
+//     }
+//     a {
+//       text-align: center;
+//       text-transform: uppercase;
+//       cursor: pointer;
+//       outline: none;
+//     }
+//   }
+//   .active {
+//     font-weight: bold;
+//     background-color: $main1;
+//   }
+// }

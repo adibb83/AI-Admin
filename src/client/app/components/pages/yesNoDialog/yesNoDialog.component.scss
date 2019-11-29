@@ -1,0 +1,14 @@
+@import '../../../../css/base';
+#yesNo {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

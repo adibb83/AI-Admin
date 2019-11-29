@@ -1,0 +1,133 @@
+<div class="pageContainer">
+  <save-changes-panel style="width: 100%; position: absolute; left: 0%; z-index: 500;" [style.top]="getYposition()" (yesNoAnswer)="yesNoSaveChanges($event)"
+    *ngIf="showSaveBanner"></save-changes-panel>
+  <a class="pagesDefualtReturnButton" (click)="returnToTeam()"><img src="../../images/leftArrow.svg"> Team & Extensions</a>
+  <form (keydown.enter)="$event.preventDefault()" (ngSubmit)="saveWorker(workerEditForm.valid ,workerEditForm.value)" #workerEditForm="ngForm"
+    novalidate>
+    <small [class.smallHidden]="!nameInput.valid && workerEditForm.submitted">Employe name is required</small>
+    <div class="headerDiv">
+      <input #nameInput="ngModel" id="nameInput" class="pagesHeader pagesHeaderInput" type="text" name="Name" (keyup.enter)="onEnter(newSynonym.value);"
+        on-focusout="nameInputFocusOut(nameInput.value)" [ngModel]="workerInfo?.Name" (ngModelChange)="workerInfo.Name = $event; isChanges = true;"
+        placeholder="Enter employe name" required>
+      <button class="defualtButtonSave" type="submit">SAVE</button>
+    </div>
+    <table class="headerTable  questionMarkTable">
+      <tr>
+        <td>This subject covers user queries about your company. It is similiar to the “CONTACT US” section in your company's
+          website
+        </td>
+        <td><i class="material-icons">help_outline</i></td>
+      </tr>
+    </table>
+
+    <small [class.smallHidden]="!phone.valid && workerEditForm.submitted">phone not in a correct format! example: +15555323455 or 9725555323455  </small>
+    <table>
+      <thead>
+        <tr>
+          <th>Phone number</th>
+          <th>SIP USERNAME</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" #phone="ngModel" name="PhoneNum" [ngModel]="workerInfo?.Phone" (ngModelChange)="workerInfo.Phone = $event; isChanges = true;"
+              placeholder="Required - add team member phone number with country code" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$">
+          </td>
+          <td><input type="text" name="Sip" [ngModel]="workerInfo?.Sip" (ngModelChange)="workerInfo.Sip = $event; isChanges = true;"
+              [ngModelOptions]="{standalone: true}" placeholder="Add Sip"></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <small [class.smallHidden]="!email.valid && workerEditForm.submitted">Email format should be <i>john@doe.com</i>.</small>
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" name="Emailstr" [ngModel]="workerInfo?.Email" (ngModelChange)="workerInfo.Email = $event; isChanges = true;"
+              #email="ngModel" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Tags Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input id="newTag" #newSynonym type="text" (keyup.enter)="onEnter(newSynonym.value); isChanges = true;newSynonym.value ='' "
+              placeholder="Add at least one tag and press enter">
+          </td>
+        </tr>
+        <tr>
+          <td style="height: auto; border:none">
+            <div class="tagsGroupLayout">
+              <div *ngFor="let tag of workerInfo?.Tags; let i=index; trackBy:customTrackBy">
+                <input type="text" [ngModel]="tag?.Contents" (ngModelChange)="tag.Contents = $event; isChanges = true;" [ngModelOptions]="{standalone: true}">
+                <i class="material-icons" (click)="deleteRow(i); isChanges = true;" (keypress)="this.style.width = ((this.value.length + 1) * 8) + 'px';">delete_forever</i>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+
+
+
+
+
+<!--<div id="workerInfo" *ngIf="workerInfo">
+  <form>
+    <table>
+      <tr>
+        <td>
+          <span>Name:</span>
+          <input type="text" name="Name" [ngModel]="workerInfo?.name" (ngModelChange)="workerInfo.name = $event" [ngModelOptions]="{standalone: true}"
+            placeholder="Add team member name">
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <span>Phone Number:</span>
+          <input type="text" name="Phone" [ngModel]="workerInfo?.phone" (ngModelChange)="workerInfo.phone = $event" [ngModelOptions]="{standalone: true}"
+            placeholder="Required - add team member phone number with country code">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Sip:</span>
+          <input type="text" name="Sip" [ngModel]="workerInfo?.sip" (ngModelChange)="workerInfo.sip = $event" [ngModelOptions]="{standalone: true}"
+            placeholder="Add Sip">
+        </td>
+      </tr>
+      <tr>
+        <td id="tags">
+          <span>Tags:</span>
+          <div id="tagsLayout">
+            <div *ngFor="let tag of workerInfo?.tags; let i=index; trackBy:customTrackBy">
+              <input type="text" [ngModel]="tag?.contents" (ngModelChange)="tag.contents = $event" [ngModelOptions]="{standalone: true}">
+              <i class="material-icons" (click)="deleteRow(i)">delete_forever</i>
+            </div>
+            <input id="newTag" md-tooltip="add Tag and press enter" md-tooltip-position="before" #newSynonym type="text" (keyup.enter)="onEnter(newSynonym.value); newSynonym.value ='' "
+              placeholder="Add at least one tag and press enter">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>-->

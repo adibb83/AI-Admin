@@ -1,0 +1,38 @@
+<div id="account">
+  <div class="header">
+    <div id="logo">
+      <a class="nav-link" href="#" [routerLink]="['/account/home']" routerLinkActive="active"></a>
+    </div>
+    <div id="navLog">
+      <a *ngIf="false"  [routerLink]="['/account/register']" routerLinkActive="active">PRODUCT</a>
+      <a   [routerLink]="['/account/pricing']" routerLinkActive="active">PRICING</a>
+      <a   [routerLink]="['/account/faqs']" routerLinkActive="active">SUPPORT</a>
+      <a   [routerLink]="['/account/register']" routerLinkActive="active">SIGN UP</a>
+      <a *ngIf="showLoginButton" class="singUp" [routerLink]="['/account/login']" routerLinkActive="active">LOG IN</a>
+      <a *ngIf="false" class=" singUp" [routerLink]="['/account/register']" routerLinkActive="active">SIGN UP</a>
+      
+    </div>
+  </div>
+  <div  class="content-container">
+    <!--<perfect-scrollbar id="scroller" class="content-area" [config]="config">
+      <router-outlet></router-outlet>
+    </perfect-scrollbar>-->
+    <div id="scroller" class="content-area">
+       <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="modal" *ngIf="loaderObj.show">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+      <br>
+      <span>{{loaderObj.text}}...</span>
+    </div>
+  </div>
+</div>
+<!--<div class="content-area">
+           <router-outlet></router-outlet>
+        </div>-->

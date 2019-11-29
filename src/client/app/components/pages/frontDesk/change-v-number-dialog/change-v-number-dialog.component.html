@@ -1,0 +1,92 @@
+<div class="pageContainer">
+  <a class="pagesDefualtReturnButton" (click)="returnToFrontDesk()"><img src="../../images/leftArrow.svg"> FRONT DESK</a>
+  <div class="headerDiv">
+    <h1 class="pagesHeader">Change virtual number</h1>
+    <button md-raised-button *ngIf="checked" class="defualtButtonSave" (click)="setNewNumber()">SAVE</button>
+  </div>
+  <table class="headerTable  questionMarkTable">
+    <tr>
+      <td>Add information about your business and services. Your virtual receptionist will be able to save you time and use this
+        information to answer customer inquiries.
+      </td>
+      <td><i class="material-icons">help_outline</i></td>
+    </tr>
+  </table>
+  <div class="noNumMessage" *ngIf="noNumbersMessage">
+    <p>OOPS.. No numbers available at the moment. Please come back later.</p>
+  </div>
+  <table *ngIf="selectingOptions">
+    <thead>
+      <tr>
+        <th>Select Contry</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <md-select (ngModelChange)="countrySelected($event)" placeholder="Contry" [(ngModel)]="selectedCountry">
+            <md-option *ngFor="let contry of selectingOptions let countryIndex = index;" [value]="countryIndex">{{ contry.Name }}</md-option>
+          </md-select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table *ngIf="states">
+    <thead>
+      <tr>
+        <th>Select State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <md-select (ngModelChange)="stateSelected($event)" placeholder="State" [(ngModel)]="selectedState">
+            <md-option *ngFor="let state of states; let stateIndex = index;" [value]="stateIndex">{{ state.Name }}</md-option>
+          </md-select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="cities">
+    <thead>
+      <tr>
+        <th>Select area code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <md-select (ngModelChange)="citySelected($event)" placeholder="city" [(ngModel)]="selectedCity">
+            <md-option *ngFor="let city of cities; let cityIndex = index;" [value]="cityIndex">{{ city.Name }}</md-option>
+          </md-select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table *ngIf="numbers">
+    <thead>
+      <tr>
+        <th>Available Numbers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <md-button-toggle-group [(ngModel)]="selectedNumber">
+            <md-button-toggle *ngFor="let number of numbers" [value]="number">
+              {{number}}
+            </md-button-toggle>
+          </md-button-toggle-group>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="selectedNumber">
+    <md-checkbox class="example-margin" [(ngModel)]="checked">I understand and agree to change my Numbers to: {{selectedNumber}}</md-checkbox>
+  </div>
+</div>
+
+

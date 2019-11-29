@@ -1,0 +1,77 @@
+<div id="mainPageLayout">
+  <div id="mobileMenu">
+    <button (click)="toggleMenu()" class="hamburger">
+  <span>toggle menu</span></button>
+    <a id="sidedrawer-brand">
+      <img src="../images/ovi_logo.svg">
+    </a>
+    <button md-button></button>
+  </div>
+
+  <aside [@slideInOut]="menuState">
+    <ul>
+      <li>
+        <a id="sidedrawer-brand">
+          <img src="../images/ovi_logo.svg">
+        </a>
+      </li>
+      <li *ngIf="this._authTokenService.getAdminTokenFromCookie()"> <a [routerLink]="['/pages/admin']" routerLinkActive="active">Admin</a> </li>
+      <li *ngIf="showAllNavChildren"><a id="firstLi" [routerLink]="['/pages/frontDesk']" routerLinkActive="active">front desk</a></li>
+      <li *ngIf="showAllNavChildren"><a id="secendLi" [routerLink]="['/pages/knowledge']" routerLinkActive="active">Knowledge</a></li>
+      <li *ngIf="showAllNavChildren"><a id="thirdLi" [routerLink]="['/pages/workers']" routerLinkActive="active">team</a></li>
+      <li *ngIf="showAllNavChildren"><a id="fourthLi" [routerLink]="['/pages/calls']" routerLinkActive="active">call Log</a></li>
+      <li> <a (click)="logout()">log out</a></li>
+    </ul>
+  </aside>
+
+  <div id="scroller" class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!--*ngIf="messageObject?.showMessage"-->
+  <div id="MessageBanner" *ngIf="messageObject?.showMessage">
+    <p>{{messageObject?.message}}</p>
+  </div>
+
+  <div class="modal" *ngIf="loaderObj.show">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+      <br>
+      <span>{{loaderObj.text}}...</span>
+    </div>
+  </div>
+
+
+
+  <!--<div id="navContainer">
+  <div id="logosContainer">
+    <div>
+      <a class="nav-link" href="#" [routerLink]="['/account/home']" routerLinkActive="active"></a>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav">
+      <li>
+        <a id="firstLi" class="nav-link" href="#" [routerLink]="['/pages/company']" routerLinkActive="active">Company</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#" [routerLink]="['/pages/team']" routerLinkActive="active">Team</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#" [routerLink]="['/pages/knowledge_base']" routerLinkActive="active">Knowledge base</a>
+      </li>
+      <li *ngIf="false">
+        <a class="nav-link" [routerLink]="['/pages/forms']" routerLinkActive="active">Forms</a>
+      </li>
+      <li style="float: right;">
+        <a class="nav-link" href="#" (click)="logout()">logout</a>
+      </li>
+    </ul>
+  </nav>
+ 
+</div>-->

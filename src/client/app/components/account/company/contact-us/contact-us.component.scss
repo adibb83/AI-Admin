@@ -1,0 +1,69 @@
+    @import '../../../../../css/keyframes';
+    @import '../../../../../css/variables';
+    @import '../../../../../css/base';
+
+    #contactContainer {
+      position: relative;
+      min-height: 35rem;
+      height: 70vh;
+      #sendMessageContainer {
+        position: relative;
+        max-width: 30rem;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%, -50%));
+        @include flex-flow(column wrap);
+        justify-content: center;
+        align-items: center;
+        .lineImg {
+          width: 25rem;
+        }
+        p {
+          color: $dark4;
+        }
+        img {
+          padding: 27px;
+        }
+        form {
+          width: 75%;
+          margin: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          input,
+          textarea {
+            width: 25rem;
+            height: 3rem;
+            margin: 0.5rem 0;
+          }
+          #subject {
+            height: 80px;
+          }
+          button {
+            width: 25rem;
+            height: 3rem;
+            box-shadow: 0 2px 4px 0;
+            background-color: $dark1;
+            color: $light1;
+            border: none;
+            cursor: pointer;
+          }
+          #sentMessage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #111;
+            color: #F6CCC9;
+            width: 24rem;
+            height: 3rem;
+            border-radius: 5px;
+            @include transform(translate(-50%, -50%));
+            @include animation(fadeIn 1s);
+            text-align: center;
+            padding: 0.5rem;
+            line-height: 3rem;
+          }
+        }
+      }
+    }

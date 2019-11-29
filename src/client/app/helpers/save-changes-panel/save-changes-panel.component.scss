@@ -1,0 +1,31 @@
+@import '../../../css/variables';
+@import "../../../css/breakpoints";
+
+#saveYesNo {
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #d94f70;
+  color: white;
+  line-height: 400%;
+  button {
+    border: 1px solid;
+    margin-right: 1rem;
+    color: $light1;
+    border-radius: 0;
+    background-color: inherit;
+    min-width: 8rem;
+    min-height: 2rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    @include breakpoint(mama-bear) {
+      min-width: 6rem;
+      min-height: 2rem;
+    }
+  }
+}

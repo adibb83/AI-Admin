@@ -1,0 +1,13 @@
+ @import '../../../../css/keyframes';
+ @import '../../../../css/variables';
+ .adminTable {
+   tr {
+     cursor: pointer;
+     &:hover {
+       background-color: $dark6;
+     }
+     td {
+       padding-left: 5px;
+     }
+   }
+ }

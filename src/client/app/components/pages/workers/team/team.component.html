@@ -1,0 +1,73 @@
+<div class="pageContainer">
+  <div class="headerDiv">
+    <h1 class="pagesHeader">Team & Extensions</h1>
+  </div>
+  <table class="headerTable">
+    <tr>
+      <td>Add team members and their contact information. For each team member, add as many descriptive tags as possible.</td>
+      <td><i class="material-icons">help_outline</i></td>
+    </tr>
+  </table>
+
+   <table class="headerTable  questionMarkTable">
+    <tr>
+      <td style="width: 50%; padding: 0;"><input #search type="text" (keyup)="0" placeholder="filter employe by text"></td>
+      <!--<div class="CreateNewButton" style="height: 100%; margin: 0;" (click)="addNewMember()"><button md-button style="height: 100%; margin: 0;">CLICK TO add  NEW team member</button></div>-->
+      <td id="addNewEmployee" >
+        <a (click)="addNewMember()">CLICK TO ADD NEW TEAM MEMBER</a>
+      </td>
+    </tr>
+  </table>
+ 
+  <table class="teamEmploiessTable">
+    <thead>
+      <tr>
+        <th>EMPLOYEES</th>
+        <th>Phone number</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let worker of workers | searchInputFilter:search.value:'Name'; let rowIndex = index">
+        <td (click)="selectWorker(worker,rowIndex)">{{worker?.Name}}</td>
+        <td (click)="selectWorker(worker,rowIndex)">{{worker?.Phone}}</td>
+        <td><i class="material-icons" (click)="deleteWorker(rowIndex,worker.Id)">delete_forever</i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!--<div id="mainLayout">
+  <div id="hader">
+    <h1>TEAM & EXTENTIONS</h1>
+    <p>Add team members and their contact information. For each team member, add as many descriptive tags as possible.</p>
+    <button class="headerAddNewBut" (click)="addNewMember()">+ADD TEAM MEMBER</button>
+     <div class="block" *ngIf="!workers">
+      <div class="loader"></div>
+    </div>
+  </div>
+  <div id="sort" *ngIf="false">
+    <span>Sort by:</span><button class="editButton" [class.active]="sortActive" (click)="sort()">Name</button> |
+    <button class="editButton" [class.active]="!sortActive" (click)="sort()">Extensions</button>
+  </div>
+  <div class="container">
+    <div id='tableLayout' *ngIf="workers">
+      <table>
+        <tr *ngFor="let worker of workers; let rowIndex = index" (click)="selectWorker(worker,rowIndex)" [class.selected]="rowIndex == selectedRow">
+          <td>
+            <div class="arrow-right" *ngIf="selectedRow == rowIndex"></div><span>{{worker?.name}}</span></td>
+          <td class="extentionTD">{{worker?.extension}}</td>
+        </tr>
+      </table>
+    </div>
+    <div id="workerInfoLayout" *ngIf="workers" >
+      <div class="syncLoader" *ngIf="showLoader"></div>
+      <div id="edit">
+        <button md-raised-button  class="editButton" (click)="saveWorker()"> SAVE</button>
+        <button md-raised-button  class="editButton" (click)="deleteWorker()"> DELETE</button>
+      </div>
+      <worker-Info [workerInfo]="selectedWorker" [isEdit]="editMode"></worker-Info>
+    </div>
+  </div>
+</div>-->

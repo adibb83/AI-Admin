@@ -1,0 +1,29 @@
+<div class="pageContainer">
+  <div class="headerDiv">
+    <h1 class="pagesHeader">i.am admin</h1>
+  </div>
+  <table class="headerTable  questionMarkTable">
+    <tr>
+      <td> <input #search type="text" (keyup)="0" placeholder="filter by text"></td>
+      <td><i class="material-icons">help_outline</i></td>
+    </tr>
+  </table>
+  <table class="adminTable">
+    <thead>
+      <tr>
+        <th>company name</th>
+        <th>email</th>
+        <th>virtual number</th>
+        <th>id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of companies | searchInputFilter:search.value:'Name'; let rowIndex = index; trackBy:customTrackBy" (click)="selectCompany(company,rowIndex)">
+        <td>{{company?.Name}}</td>
+        <td>{{company?.Email}}</td>
+        <td>{{company?.VirtualPhone}}</td>
+        <td>{{company?.Id}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

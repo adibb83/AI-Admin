@@ -1,0 +1,113 @@
+@import '../../../../css/keyframes';
+@import '../../../../css/variables';
+@import '../../../../css/modules';
+@import '../../../../css/keyframes';
+@import '../../../../css/variables';
+@import '../../../../css/modules';
+#login {
+  width: 100%;
+  height: 100%;
+  section {
+    @include animation(fadeIn 900ms ease-in-out);
+    main {
+      transition: .3s ease-out;
+      height: calc(100vh - 5rem);
+      @include breakpoint(child-bear) {
+        height: calc(70vh - 5rem);
+      }
+      position: relative;
+      @include flex-flow(column nowrap);
+      justify-content: center;
+      align-items: center;
+      .context {
+        @include flex-flow(column nowrap);
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        .sectionHeader{
+          position: relative;
+        }
+        .inputSectionTemplate {
+          input,
+          button {
+            width: 30rem;
+          }
+        }
+        form {
+          width: 100%;
+          height: 100%;
+          div {
+            @include flex-flow(row wrap);
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 3rem;
+            a {
+              color: $dark1;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .login {
+//   position: relative;
+//   height: 65vh;
+//   min-height: 35rem;
+//   p {
+//     text-transform: uppercase;
+//     text-align: center;
+//     max-width: 25rem;
+//   }
+//   #loginPage {
+//     position: absolute;
+//     top: 55%;
+//     left: 50%;
+//     width: 25%;
+//     min-width: 25rem;
+//     @include transform(translate(-50%, -50%));
+//     @include flex-flow(column wrap);
+//     justify-content: center;
+//     align-items: center;
+//     .lineImg{max-width: 25rem;}
+//     form {
+//       text-align: center;
+//       @include flex-flow(column wrap);
+//       justify-content: center;
+//       align-items: center;
+//       width: 100%;
+//       max-width: 25rem;
+//       input,
+//       {
+//         width: 25rem;
+//         height: 3rem;
+//         margin: 0.5rem 0;
+//       }
+//       button {
+//         position: relative;
+//         width: 25rem;
+//         height: 3rem;
+//         margin: 1rem 0;
+//         background-color: #242a2c;
+//         color: $DefualtTextwhite;
+//         .syncLoader {
+//           position: absolute;
+//           left: -10%;
+//           top: 80%;
+//         }
+//       }
+//     }
+//   }
+// }
+#error {
+  background-color: lightcoral;
+  max-width: 320px;
+  p {
+    width: 100%;
+    margin: auto;
+    padding: 5px;
+  }
+}

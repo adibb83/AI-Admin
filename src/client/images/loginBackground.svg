@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="903px" viewBox="0 0 1920 903" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>6AEF8B43-BCB0-457A-B044-682477799135</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1920" height="903"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login-Copy-2" transform="translate(0.000000, -91.000000)">
+            <g id="background" transform="translate(0.000000, 91.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle-12" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <ellipse id="Oval-2-Copy" fill="#C1C1C1" opacity="0.49926404" mask="url(#mask-2)" cx="1920" cy="903" rx="735" ry="735"></ellipse>
+                <ellipse id="Oval-2-Copy-2" fill="#C1C1C1" opacity="0.49926404" mask="url(#mask-2)" cx="0" cy="903" rx="735" ry="735"></ellipse>
+                <ellipse id="Oval-2-Copy-4" fill="#EAC2BD" opacity="0.504528986" mask="url(#mask-2)" cx="1921" cy="904" rx="597" ry="597"></ellipse>
+                <ellipse id="Oval-2-Copy-6" fill="#EAC2BD" opacity="0.504528986" mask="url(#mask-2)" cx="1" cy="904" rx="597" ry="597"></ellipse>
+                <ellipse id="Oval-2-Copy-5" fill="#EAC2BD" mask="url(#mask-2)" cx="1920.25" cy="903.25" rx="445.25" ry="445.25"></ellipse>
+                <ellipse id="Oval-2-Copy-7" fill="#EAC2BD" mask="url(#mask-2)" cx="0.25" cy="903.25" rx="445.25" ry="445.25"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

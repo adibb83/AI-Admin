@@ -1,0 +1,60 @@
+
+<div id="login">
+<section >
+  <main class="container">
+    <div class="context">
+      <div class="sectionHeader">
+        <error class="errorMessageHelper" [error]="error" (clear)="error=null" *ngIf="error"></error>
+        <h1>LOGIN</h1>
+        <p>Stop Missing Calls and Start Making an Impression Today! </p>
+      </div>
+      <div >
+        <form class="inputSectionTemplate" #loginForm="ngForm" novalidate  (ngSubmit)="login(loginForm.valid ,loginForm.value)">
+          <input type="email" name="email" [(ngModel)]="accountLoginCredentials.Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+            #email="ngModel" placeholder="E-Mail">
+          <small [class.smallHidden]="!email.valid && loginForm.submitted">Email is required and format should be <i>john@doe.com</i>.</small>
+          <input type="password" name="password" [(ngModel)]="accountLoginCredentials.Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{6,}"
+            #password="ngModel" placeholder="Password">
+          <small [class.smallHidden]="!password.valid && loginForm.submitted"> Password is in wrong format - example:<i>Overai?24</i> </small>
+          <button class="upperCaseBold" type="submit">Login <div *ngIf="showSyncAnimation" class="syncLoader"> </div></button>
+          <div>
+            <a class="subHeader" [routerLink]="['/account/forgotPasswordEmail']">Forgot password?</a>
+            <a class="subHeader" [routerLink]="['/account/contact-us']">Apply for beta</a>
+            <!--<a class="subHeader" [routerLink]="['/account/register']">Sign up</a>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</section>
+</div>
+<account-footer style="position: absolute; bottom: 0%; width: 100%;"></account-footer>
+
+<!--<section class="login publicBackImg">
+  <!--<error [error]="error" (clear)="error=null" *ngIf="error"></error>-->
+  <!--<success [success]="success" (clear)="success=null" *ngIf="success"></success>
+
+  <div id="loginPage">
+    <div id="error" [hidden]="!error">
+      <p>{{error}}</p>
+    </div>
+    <error class="errorMessageHelper" [error]="error" (clear)="error=null" *ngIf="error"></error>
+    <p class="headline">LOGIN</p>
+    <div class="lineImg"> </div>
+    <p class="bodyHighLight">Stop Missing Calls and Start Making an Impression Today!</p>
+    <form #loginForm="ngForm" novalidate (ngSubmit)="login(loginForm.valid ,loginForm.value)">
+      <input type="email" name="email" [(ngModel)]="accountLoginCredentials.Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+        #email="ngModel" placeholder="E-Mail">
+      <small [class.smallHidden]="!email.valid && loginForm.submitted">Email is required and format should be <i>john@doe.com</i>.</small>
+      <input type="password" name="password" [(ngModel)]="accountLoginCredentials.Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{6,}"
+        #password="ngModel" placeholder="Password">
+      <small [class.smallHidden]="!password.valid && loginForm.submitted"> Password is in wrong format - example:<i>Overai?24</i> </small>
+      <button class="upperCaseBold" type="submit">Login <div *ngIf="showSyncAnimation" class="syncLoader"> </div></button>
+      <div class="forgotPass">
+        <a class="subHeader" [routerLink]="['/account/forgotPasswordEmail']">Forgot password?</a>
+        <a class="subHeader" [routerLink]="['/account/contact-us']">Apply for beta</a>
+        <a class="subHeader" [routerLink]="['/account/register']">Sign up</a>
+      </div>
+    </form>
+  </div>
+</section>-->

@@ -1,0 +1,20 @@
+<div id="dynamicLayout" class="publicBackImg">
+  <section>
+    <div id="textOuterContainer">
+      <div id="textContainer">
+        <p class="headline" [innerHTML]="header"></p>
+        <div class="lineImg"></div>
+        <p class="bodyHighLight">{{lastUpdate}}</p>
+      </div>
+    </div>
+    <div id="imgRight" class="imgContainer"></div>
+  </section>
+  <section>
+    <div id="infoBox">
+      <p [innerHTML]="body"></p>
+    </div>
+  </section>
+  <section>
+    <account-footer></account-footer>
+  </section>
+</div>

@@ -1,0 +1,23 @@
+<div id="dynamicLayout" class="publicBackImg">
+  <section>
+    <div id="textOuterContainer">
+      <div id="textContainer">
+        <p class="headline">frequently<br/> asked questions</p>
+        <div class="lineImg"></div>
+        <p class="bodyHighLight">Have questions? Send us a message at hello@oai.com</p>
+      </div>
+    </div>
+    <div id="imgRight" class="imgContainer"></div>
+  </section>
+  <section>
+    <div id="infoBox">
+      <div *ngFor="let item of questions">
+        <p [innerHTML]="item.question" style="color:black; font-family:FlamaSemicondensed-Semibold;"></p>
+        <p [innerHTML]="item.answer"></p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <account-footer></account-footer>
+  </section>
+</div>

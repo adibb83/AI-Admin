@@ -1,0 +1,126 @@
+<div id="register" #register>
+  <form #registerForm="ngForm" novalidate >
+    <section id="section1" *ngIf="currentSection =='#section1'">
+      <main class="container">
+        <div class="context">
+          <div class="sectionHeader">
+            <h1>Register</h1>
+            <p>Streamline your phone operations with artificial intelligence. </p>
+          </div>
+          <div class="inputSectionTemplate">
+            <input type="text" placeholder="Enter your email here" name="Email" #email="ngModel" [(ngModel)]="accountRegisterDetails.Email"
+              required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+            <small [class.smallHidden]="!email.valid && showError">Email is required and format should be <i>john@doe.com</i>.</small>
+            <button (click)="scroll('#section2',email.valid);$event.preventDefault()">Get Started</button>
+          </div>
+        </div>
+      </main>
+    </section>
+    <section id="section2" *ngIf="currentSection =='#section2'">
+      <main class="container">
+        <div class="context">
+          <div class="sectionHeader">
+            <h1>Contact Details</h1>
+            <p>Add your first team member and his/her contact information</p>
+          </div>
+          <div class="inputSectionTemplate">
+            <input type="text" placeholder="Full Name" name="FullName" #fullName="ngModel" [(ngModel)]="accountRegisterDetails.FullName"
+              required>
+            <input type="text" placeholder="Phone number" name="PhoneNumber" #phoneNumber="ngModel" [(ngModel)]="accountRegisterDetails.PhoneNumber"
+              required pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$">
+            <input type="text" placeholder="Company Name" name="Company" #company="ngModel" [(ngModel)]="accountRegisterDetails.Company"
+              required>
+            <small [class.smallHidden]="!phoneNumber.valid && showError">phone not in a correct format! example: +15555323455 , +9725555323455  </small>
+            <small [class.smallHidden]="(!company.valid || !fullName.valid) && showError">All Fields are required</small>
+            <button (click)="scroll('#section3',fullName.valid && phoneNumber.valid && company.valid); $event.preventDefault(); ">Continue to Choose Password</button>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <section id="section3" *ngIf="currentSection =='#section3'">
+      <main class="container">
+        <div class="context">
+          <div class="sectionHeader">
+            <h1>Choose Password</h1>
+            <p>Streamline your phone operations with artificial intelligence. </p>
+          </div>
+          <div class="inputSectionTemplate">
+            <input type="password" name="password" [(ngModel)]="accountRegisterDetails.Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{6,}"
+              #password="ngModel" placeholder="Password">
+            <small [class.smallHidden]="!password.valid && showError">password  example:<i>Overai?24</i></small>
+            <input type="password" name="confirmPassword" [(ngModel)]="accountRegisterDetails.ConfirmPassword" required validateEqual="password"
+              #confirmPassword="ngModel" placeholder="Confirm Password">
+            <small [class.smallHidden]="!confirmPassword.valid && showError">Password mismatch</small>
+            <button (click)="scroll('#section4',(confirmPassword.valid && password.valid));$event.preventDefault()">Continue to Company Greeting</button>
+          </div>
+        </div>
+      </main>
+    </section>
+    <section id="section4" *ngIf="currentSection =='#section4'">
+      <main class="container">
+        <div class="context">
+          <div class="sectionHeader">
+            <h1>Company Greeting</h1>
+            <p>Customize your company front desk greeting</p>
+          </div>
+          <div class="inputSectionTemplate">
+             <input type="text" placeholder="Welcome to  “Company Name” how can  help you?" name="GreetingName" [(ngModel)]="accountRegisterDetails.GreetingName" required  #greetingName="ngModel">
+            <small [class.smallHidden]="!greetingName.valid && showError">this Field is required</small>
+            <i class="material-icons">play_circle_outline</i>
+            <button (click)="scroll('#section5',greetingName.valid);$event.preventDefault()">Continue to Check out</button>
+            <!--(click)="scroll('#section5',greetingName.valid);register(registerForm.valid, registerForm.value);"-->
+          </div>
+        </div>
+      </main>
+    </section>
+    <section id="section5" *ngIf="currentSection =='#section5'">
+      <main class="container">
+        <div class="context">
+          <div class="sectionHeader">
+            <h1>Check Your Email</h1>
+            <p>Thank you for joining OVER.ai. <br> We’ve sent confirmation email to: <br> {{accountRegisterDetails.Email}}</p>
+            <!--<p>We’ve sent a six-digit confirmation code to <br> {{Email}}</p>-->
+          </div>
+          <div class="inputSectionTemplate">
+            <!--<p>It will expire shortly, so enter your code soon.</p>-->
+            <!--<input type="text" placeholder="Enter PIN" required>
+            <button (click)="goToRegister()">Continue to Admin</button>-->
+            <p>Keep this window open while checking for your code. Haven't received our email? Try your spam folder!</p>
+          </div>
+        </div>
+      </main>
+    </section>
+  </form>
+</div>
+<account-footer></account-footer>
+<!--<section class="register">
+  <div id="loginPage">
+    <p class="headline">SIGN UP</p>
+    <div class="lineImg"></div>
+    <p class="bodyHighLight">Stop Missing Calls and Start Making an Impression Today!</p>
+    <form #registerForm="ngForm" novalidate (ngSubmit)="register(registerForm.valid, registerForm.value)">
+      <input type="text" name="companyName" #companyName="ngModel" [(ngModel)]="accountRegisterDetails.Company" required minlength="2"
+        placeholder="Company">
+        <small [class.smallHidden]="!companyName.valid && registerForm.submitted">Company name is required (minimum 2 characters).</small>
+        <input type="email" name="email" [(ngModel)]="accountRegisterDetails.Email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+          #email="ngModel" placeholder="E-Mail">
+          <small [class.smallHidden]="!email.valid && registerForm.submitted">Email is required and format should be <i>john@doe.com</i>.</small>
+          <input type="password" name="password" [(ngModel)]="accountRegisterDetails.Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{6,}"
+            #password="ngModel" placeholder="Password">
+            <small [class.smallHidden]="!password.valid && registerForm.submitted">
+          password  example:<i>Overai?24</i>
+    </small>
+            <input type="password" name="confirmPassword" [(ngModel)]="accountRegisterDetails.ConfirmPassword" required validateEqual="password"
+              #confirmPassword="ngModel" placeholder="Confirm Password">
+              <small [class.smallHidden]="!confirmPassword.valid && registerForm.submitted">
+        Password mismatch
+    </small>
+              <button type="submit" >Register</button>
+              <div *ngIf="message || error" id="message">{{message || error}}</div>
+    </form>
+    <p>Already have an account?  <a class="subHeader" [routerLink]="['/account/login']">Log In.</a></p>
+  </div>
+</section>-->
+
+<!--[class.has-error]="!registerForm.controls['Name'].valid"-->

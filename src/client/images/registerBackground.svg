@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="903px" viewBox="0 0 1920 903" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>5102043C-D71F-4C84-B2AB-699DF762ACA4</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1920" height="903"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Register" transform="translate(0.000000, -91.000000)">
+            <g id="background" transform="translate(0.000000, 91.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle-12" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <ellipse id="Oval-2-Copy" fill="#C1C1C1" opacity="0.496942935" mask="url(#mask-2)" cx="964" cy="455" rx="747.8125" ry="747.8125"></ellipse>
+                <ellipse id="Oval-2-Copy-4" fill="#EDD29A" opacity="0.503623188" mask="url(#mask-2)" cx="964.950012" cy="454.950012" rx="595.950012" ry="595.950012"></ellipse>
+                <circle id="Oval-2-Copy-5" fill="#EDD29A" mask="url(#mask-2)" cx="964.25" cy="455.25" r="445.25"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

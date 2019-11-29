@@ -1,0 +1,110 @@
+@import '../../../../../css/keyframes';
+@import '../../../../../css/variables';
+
+
+#nameInput{
+  border:none;
+  @include placeholder(){
+    font-size: $mediumMediumFontSize;
+  }
+}
+
+.pagesHeader{
+  text-transform: none;
+}
+
+#saveChangesPanel{
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+
+// .entityLayout {
+//   width: 99%;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   .header {
+//     position: relative;
+//     width: 100%;
+//     flex-basis: 33%;
+//     button {
+//       img {
+//         width: 13px;
+//         height: 13px;
+//       }
+//     }
+//     h1 {
+//       margin-bottom: 2px;
+//     }
+//     p {
+//       max-width: 50%;
+//     }
+//     input {
+//       width: 50%;
+//       background-color: inherit;
+//       border-radius: 0px;
+//       border: none;
+//       border-bottom: 2px solid black;
+//       color: $DefualtTextblack;
+//       font-size: $smallFontSize;
+//       resize: none;
+//     }
+//     .syncLoader {
+//       position: absolute;
+//       left: 70%;
+//       top: 95%;
+//       @include transform(translate(-50%, -50%));
+//     }
+//     #buttons {
+//       position: absolute;
+//       right: 0;
+//       bottom: 1%;
+//       text-align: center;
+//     }
+//   }
+//   .requestResponsLayout {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     align-items: baseline;
+//     flex-basis: 67%;
+//     width: 100%;
+//     margin-top: 1%;
+//     span {
+//       color: $inputLableColor;
+//       line-height: 200%;
+//       padding-left: 15px;
+//     }
+//     input,
+//     textarea {
+//       width: 100%;
+//     }
+//     .request {
+//       width: 100%;
+//       display: flex;
+//       flex-direction: column-reverse;
+//       div {
+//         position: relative;
+//         i {
+//           position: absolute;
+//           right: 1%;
+//           top: 50%;
+//           @include transform(translate(-50%, -50%));
+//           cursor: pointer;
+//         }
+//       }
+//     }
+//     .respond {
+//       width: 100%;
+//       textarea {
+//         border: 1px solid $inputBorderColor;
+//         color: $DefualtTextblack;
+//         font-size: $smallFontSize;
+//         resize: none;
+//       }
+//     }
+//   }
+// }

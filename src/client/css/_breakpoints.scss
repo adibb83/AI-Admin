@@ -1,0 +1,21 @@
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1900px) { @content; }
+  }
+   @if $point == fatmama-bear {
+    @media (max-width: 1440px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 1280px) { @content; }
+  }
+   @else if $point == child-bear {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 650px)  { @content; }
+  }
+   @else if $point == sperm-bear {
+    @media (max-width: 320px)  { @content; }
+  }
+ 
+}

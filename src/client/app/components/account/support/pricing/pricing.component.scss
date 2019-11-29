@@ -1,0 +1,243 @@
+@import '../../../../../css/keyframes';
+@import '../../../../../css/variables';
+@import '../../../../../css/modules';
+#pricing {
+  section {
+    @include animation(fadeIn 900ms ease-in-out);
+    main {
+      transition: .3s ease-out;
+      height: calc(100vh - 5rem);
+      // @include breakpoint(child-bear) {
+      //   height: calc(70vh - 5rem);
+      // }
+      position: relative;
+      @include flex-flow(column nowrap);
+      justify-content: center;
+      align-items: center;
+      .context {
+        max-width: 80%;
+        min-width: 50rem;
+        @include breakpoint(baby-bear) {
+          min-width: 32rem;
+        }
+        margin: auto;
+        @include flex-flow(column wrap);
+        justify-content: center;
+        align-items: center;
+        .sectionHeader {
+          margin-bottom: 3rem;
+          p {
+            text-align: center;
+          }
+        }
+        #box {
+          max-width: 50rem;
+          min-height: 33rem;
+          width: 100%;
+          @include flex-flow(column wrap);
+          justify-content: flex-start;
+          align-items: center;
+          border: 1px solid $light6;
+          #buttonsContainer {
+            width: 100%;
+            @include flex-flow(row wrap);
+            justify-content: center;
+            align-items: center;
+            button {
+              width: 50%;
+              height: 5rem;
+              background-color: $dark7;
+              border: 1px solid $light6;
+              border-radius: 0;
+              font-size: 1.2rem;
+              color: $dark4;
+              font-weight: bold;
+            }
+          }
+          #forTeamsContainer {
+            width: 100%;
+            @include flex-flow(row wrap);
+            justify-content: space-around;
+            align-items: flex-start;
+            @include animation(fadeIn .5s ease-in-out);
+            span {
+              font-size: 1.3rem;
+            }
+            span:first-child {
+              margin: 1rem 0;
+            }
+            div {
+              @include flex-flow(column nowrap);
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              h1,
+              span {
+                color: $dark2;
+                margin: 1rem 0;
+              }
+              h1 {
+                font-weight: 500;
+              }
+              small {
+                opacity: 1;
+                color: $dark2;
+              }
+            }
+          }
+          #enterpriseContainer {
+            @include animation(fadeIn .5s ease-in-out);
+            width: 100%;
+            @include flex-flow(column nowrap);
+            justify-content: center;
+            align-items: center;
+            p {
+              max-width: 60%;
+              text-align: center;
+              font-size: 1.2rem;
+              letter-spacing: 2px;
+              color: $dark2;
+            }
+            .inputSectionTemplate {
+              input {
+                border-top: none;
+                margin: 0.5rem 0;
+                @include placeholder {
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#MessageBanner {
+  z-index: 500;
+  @include flex-flow(column nowrap);
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  color: $DefualtTextwhite;
+  opacity: 0.9;
+  min-width: 10rem;
+  height: 6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+  @include border-radius(8px);
+  @include animation(fadeIn 0.5s);
+  @include breakpoint(baby-bear) {
+    left: 50%;
+  }
+  p {
+    text-align: center;
+    padding: 0.5rem;
+  }
+}
+
+.buttonActive {
+  color: $light1 !important;
+  background-color: $main5 !important;
+}
+
+//   position: relative;
+//   height: calc(100vh - 5rem);
+//   @include breakpoint(child-bear) {
+//     height: calc(70vh - 5rem);
+//     margin-bottom: 0;
+//   }
+//   @include breakpoint(baby-bear) {
+//     height: calc(100vh - 5rem);
+//     margin-bottom: 0;
+//   }
+//   .container {
+//     position: absolute;
+//     top: 55%;
+//     left: 50%;
+//     @include transform(translate(-50%, -50%));
+//     min-width: 25rem;
+//     @include flex-flow(column nowrap);
+//     justify-content: space-between;
+//     @include breakpoint(baby-bear) {
+//       height: 100%;
+//       position: relative;
+//       top: 0;
+//       left: 0;
+//       @include transform(translate(0, 0));
+//       justify-content: flex-start;
+//     }
+//     #header {
+//       @include flex-flow(column nowrap);
+//       justify-content: center;
+//       align-items: center;
+//       text-align: center;
+//       .lineImg {
+//         max-width: 20rem;
+//       }
+//     }
+//     #pricingContainer {
+//       @include flex-flow(row wrap);
+//       justify-content: space-around;
+//       align-items: baseline;
+//       min-width: 70rem;
+//       @include breakpoint(child-bear) {
+//         justify-content: center;
+//       }
+//       @include breakpoint(baby-bear) {
+//         min-width: 38rem;
+//         justify-content: space-around;
+//       }
+//       .line {
+//         width: 100% !important;
+//         height: 0.2rem !important;
+//         margin: 0.2rem 0;
+//         background-color: $dark1;
+//         @include breakpoint(baby-bear) {
+//           margin: 0.5rem 0;
+//         }
+//       }
+//       .singleContainer {
+//         max-width: 15rem;
+//         min-height: 30rem;
+//         @include flex-flow(column wrap);
+//         justify-content: space-between;
+//         align-items: flex-start;
+//         @include breakpoint(baby-bear) {
+//           min-height: 23rem;
+//           padding-top:1.5rem;
+//           align-items: center;
+//         }
+//          :nth-child(1) {
+//           width: 100%;
+//         }
+//         p {
+//           margin: 0;
+//         }
+//         p:nth-child(3) {
+//           min-height: 3rem;
+//         }
+//         p:nth-child(5) {
+//           min-height: 2rem;
+//         }
+//         span {
+//           text-transform: uppercase;
+//         }
+//         a {
+//           display: block;
+//           color: $dark1;
+//           background-color: $light1;
+//           box-shadow: 3px 5px 19px #888888;
+//           text-align: center;
+//           padding: 1rem;
+//           text-decoration: none;
+//           width: 10rem;
+//           height: 3rem;
+//         }
+//       }
+//     }
+//   }
+// }

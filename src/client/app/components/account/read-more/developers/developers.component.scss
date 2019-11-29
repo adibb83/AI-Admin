@@ -1,0 +1,66 @@
+ @import '../../../../../css/keyframes';
+@import '../../../../../css/variables';
+
+ #developers {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     .container {
+         width: 50%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: flex-start;
+         padding: 65px;
+     }
+     h1,
+     strong,
+     span {
+         font-family: "FlamaSemicondensed-Bold";
+     }
+     h1{
+         font-size: $bigFontSize;
+         margin: 0;
+     }
+     strong {
+         font-size:2em;
+     }
+     p {
+         color: $homeGreetingTextColor;
+         word-wrap: break-word;
+         text-align: left;
+     }
+     button {
+         background-color: $homePageButtonColor;
+         border-radius: 15px;
+         font-weight: 600;
+         font-size: 18px;
+         color: #242a2c;
+         width: 210px;
+         height: 40px;
+         margin-top: 30px;
+     }
+
+     ul{padding-left: 20px;
+     li{
+         color: $homeGreetingTextColor;
+         padding-top: 5px;
+     }
+     }
+     #imgContainer {
+         width: 550px;
+         height: 550px;
+         background-image: url("../images/developerBackImg.svg");
+         background-repeat: no-repeat;
+         background-position-x: center;
+         background-position: bottom;
+         background-size: cover;
+     }
+ }
+
+account-footer{position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 100%;}

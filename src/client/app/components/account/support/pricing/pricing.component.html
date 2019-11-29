@@ -1,0 +1,117 @@
+<div id="pricing">
+  <section id="section1">
+    <main class="container">
+      <div class="context">
+        <div class="sectionHeader">
+          <h1>PRICING</h1>
+          <p>With OAI there are no up-front payments, long-term commitments,<br> or additional hardware needed to get started.
+          </p>
+        </div>
+        <div id="box">
+          <div id='buttonsContainer'>
+            <button (click)="currentActiveTab('team')" [class.buttonActive]="activeButton == 'team'">For Teams</button>
+            <button
+              (click)="currentActiveTab('enter')" [class.buttonActive]="activeButton=='enter'">Enterprise</button>
+          </div>
+          <div id="forTeamsContainer" *ngIf="activeButton=='team'">
+            <div>
+              <span>Free</span>
+              <h1>&#36;0</h1>
+              <span>month per extension</span>
+              <p>100 free minutes per month <br> $.15 for each additional minute</p>
+              <small>Inbound calls only</small>
+            </div>
+            <div>
+              <span>Standard</span>
+              <h1>&#36;15</h1>
+              <span>month per extension</span>
+              <p>500 free minutes per month <br> $.10 for each additional minute</p>
+              <small>Inbound & outbound calls</small>
+            </div>
+            <div>
+              <span>Plus</span>
+              <h1>&#36;19</h1>
+              <span>month per extension</span>
+              <p>Unlimited minutes</p>
+              <small>Inbound & outbound calls</small>
+            </div>
+          </div>
+          <div id="enterpriseContainer" *ngIf="activeButton =='enter'">
+            <p>Premium telephony suite for call centers in need of a custom solution at a lower cost.</p>
+            <form #enterForm="ngForm" class="inputSectionTemplate" novalidate>
+              <input type="text" placeholder="Enter your email here" name="Email" #email="ngModel" [(ngModel)]="accountRegisterDetails.Email"
+                required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              <input type="text" placeholder="Full Name" name="FullName" #fullName="ngModel" [(ngModel)]="accountRegisterDetails.FullName"
+                required>
+              <input type="text" placeholder="Phone number" name="PhoneNumber" #phoneNumber="ngModel" [(ngModel)]="accountRegisterDetails.PhoneNumber"
+                required pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$">
+              <input type="text" placeholder="Company Name" name="Company" #company="ngModel" [(ngModel)]="accountRegisterDetails.Company"
+                required>
+              <small [class.smallHidden]="!email.valid && showError">Email is required and format should be <i>john@doe.com</i>.</small>
+              <small [class.smallHidden]="!phoneNumber.valid && showError">phone not in a correct format! example: +15555323455 , +9725555323455  </small>
+              <small [class.smallHidden]="(!company.valid || !fullName.valid) && showError">All Fields are required</small>
+              <button (click)="sendEnterpriseParams(email.valid && company.valid && phoneNumber.valid && fullName.valid)">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+
+</div>
+<account-footer></account-footer>
+<div id="MessageBanner" *ngIf="messageObject">
+  <p>{{messageObject}}</p>
+</div>
+
+
+
+
+
+
+<!--<div id="pricing" class="publicBackImg">
+  <div class="container">
+    <div id="header">
+      <p class="headline">PRICING</p>
+      <div class="lineImg"></div>
+      <p class="bodyHighLight">Stop Missing Calls and Start Making an Impression Today!</p>
+    </div>
+    <div id="pricingContainer">
+      <div class="singleContainer">
+        <div>
+          <span class="mediumSmallBold">PROFESSIONAL</span>
+          <div class="line"></div>
+        </div>
+        <p class="defualtFontSize">If you’re a solopreneur or small business, this plan is for you.</p>
+        <div><span class="mediumHeadLine">100</span><span> Min</span></div>
+        <p class="defualtFontSize">And all our great features</p>
+        <span class="mediumHeadLine">FREE</span>
+        <a  class="upperCaseBold" [routerLink]="['/account/register']" routerLinkActive="active" >GET STARTED</a>
+      </div>
+      <div class="singleContainer">
+        <div>
+          <span class="mediumSmallBold">ON THE RISE!</span>
+          <div class="line"></div>
+        </div>
+        <p class="defualtFontSize">A small business, watching your traffic grow? We help you scale</p>
+        <div><span class="mediumHeadLine">300</span><span> Min</span></div>
+        <p class="defualtFontSize">And all our great features</p>
+        <div><span class="mediumHeadLine">&#36;50/</span><span> month</span></div>
+        <a class="upperCaseBold"  [routerLink]="['/account/register']" routerLinkActive="active">GET STARTED</a>
+      </div>
+      <div class="singleContainer">
+        <div>
+          <span class="mediumSmallBold">ENTERPRISE</span>
+          <div class="line"></div>
+        </div>
+        <p class="defualtFontSize">You mean business! We’ll help you handle your high volume with a customized solution.</p>
+        <div><span class="mediumHeadLine">3000</span><span> Min</span></div>
+        <p class="defualtFontSize">And customized call scenarios by our team of experts</p>
+        <div><span class="mediumHeadLine">&#36;400/</span><span>month</span></div>
+        <a class="upperCaseBold" [routerLink]="['/account/contact-us']" routerLinkActive="active">CONTACT US</a>
+      </div>
+    </div>
+  </div>
+</div>
+-->

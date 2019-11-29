@@ -1,0 +1,323 @@
+@import "./mixins";
+@import "./variables";
+@import "./keyframes";
+
+.headline {
+  font-size: $bigFontSize;
+  font-weight: 600;
+  color: $dark4;
+  margin: 5px;
+  text-transform: uppercase;
+}
+
+.mediumHeadLine {
+  font-size: $mediumBigFontSize;
+  font-weight: 600;
+  color: $dark4;
+  margin: 5px;
+}
+
+.title {
+  font-size: $mediumFontSize;
+  font-weight: 600;
+}
+
+.titleRegular {
+  font-size: $mediumFontSize;
+}
+
+.mediumMediumRegular{
+  font-size:  $mediumMediumFontSize;
+}
+.mediumMediumBold{
+  font-size:  $mediumMediumFontSize;
+  font-weight: 600;
+}
+.mediumSmallBold {
+  font-size: $mediumSmallFontSize;
+  font-weight: 600;
+}
+
+.mediumSmallRegular {
+  font-size: $mediumSmallFontSize;
+}
+
+.defualtFontSize {
+  font-size: $smallFontSize;
+}
+
+.bodyHighLight {
+  font-size: $smallFontSize;
+  font-weight: 600;
+}
+
+.subHeader {
+  font-size: $xsFontSize;
+  font-weight: 600;
+}
+
+.subHeaderRgular {
+  font-size: $xsFontSize;
+  font-family: $font-flama;
+}
+
+.upperCaseBold {
+  font-size: $xxsFontSize;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pagesHeader{
+   font-size: $mediumBigFontSize;
+  font-weight: 600;
+  color: $dark3;
+  margin: 5px;
+  text-transform: uppercase;
+}
+
+.pagesHeaderInput{
+  max-width: 80%;
+}
+.tag {
+  background: $light3;
+  border-radius: 3px 0 0 3px;
+  color: $dark2;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.8s;
+}
+
+.tag::before {
+  background: $light3;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.50);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: $light4;
+  border-bottom: 13px solid $light4;
+  border-left: 10px solid $light3;
+  border-top: 13px solid $light4;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.tag:hover {
+  background-color: $main1;
+}
+
+.tag:hover::after {
+  border-left-color: $main1;
+}
+
+.lineImg {
+  width: 100%;
+  height: 15px;
+  background-color: $dark4;
+}
+
+.InputEditMode {
+  background-color: $grayBackground;
+}
+
+.headerAddNewBut {
+  float: right;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 5px;
+  background-color: $main-Pink;
+  color: #ffffff;
+  width: 145px;
+  height: 35px;
+}
+
+.aiLogo {
+  position: relative;
+  height: 8rem;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 340px;
+  background-image: url("../images/oai-login.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.forgotPass {
+  @include flex-flow(row wrap);
+  justify-content: space-between;
+  align-items: center;
+  width: 25rem;
+  height: 3rem;
+  a {
+    color: $dark1;
+    text-decoration: underline;
+  }
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 9px solid black;
+  margin-right: 2px;
+}
+
+.editButton {
+  text-align: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 5px;
+  background-color: $main-Pink;
+  color: #ffffff;
+  margin-left: 5px;
+  cursor: pointer;
+  img {
+    width: 13px;
+    height: 13px;
+  }
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.defualtPageLayout {
+  width: 70%;
+  margin: auto;
+  line-height: 150%;
+}
+
+.defualtHeader {
+  width: 100%;
+  display: inline-block;
+  border-bottom: 1px solid $componentBorderGray;
+  h1 {
+    color: $main-Pink;
+    font-size: $bigFontSize;
+    margin: 0;
+    margin-top: 2%;
+  }
+  p {
+    width: 100%;
+    float: left;
+  }
+}
+
+.block,
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loader {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  top: 50%;
+  margin: -40px 0 0 -40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: $editModeBorder;
+  z-index: 1001;
+  animation: spin 2s linear infinite;
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: $editModeBorder;
+  animation: spin 3s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: $editModeBorder;
+  animation: spin 1.5s linear infinite;
+}
+
+.syncLoader {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  left: 10%;
+  top: 70%;
+  margin: -40px 0 0 -40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: $editModeBorder;
+  z-index: 1001;
+  animation: spin 2s linear infinite;
+}
+
+.syncLoader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: $editModeBorder;
+  animation: spin 3s linear infinite;
+}
+
+.syncLoader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: $editModeBorder;
+  animation: spin 1.5s linear infinite;
+}
+
+.whiteButton {
+  display: block;
+  color: $dark1;
+  background-color: $light1;
+  box-shadow: 3px 5px 19px #888888;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  width: 10rem;
+  height: 3rem;
+}

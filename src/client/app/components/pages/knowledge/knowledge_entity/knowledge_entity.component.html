@@ -1,0 +1,144 @@
+<div class="pageContainer">
+  <save-changes-panel id="saveChangesPanel" style="width: 100%; position: absolute; left: 0%; z-index: 500;" [style.top]="getYposition()" (yesNoAnswer)="yesNoSaveChanges($event)" *ngIf="showSaveBanner"></save-changes-panel>
+  <a class="pagesDefualtReturnButton" (click)="returnToKnowledge()"><img src="../../images/leftArrow.svg"> Knowledge</a>
+  
+  <div class="headerDiv" *ngIf="knowledgeInfo">
+    <input id="nameInput" class="pagesHeader pagesHeaderInput" type="text" name="Header" [ngModel]="knowledgeInfo?.Header" (ngModelChange)="knowledgeInfo.Header = $event;isChanges=true;"
+      [ngModelOptions]="{standalone: true}" placeholder="Knowledge Name">
+    <button  class="defualtButtonSave" (click)="save()">SAVE</button>
+  </div>
+  <table class="headerTable  questionMarkTable">
+    <tr>
+      <td>It is better to add more than one request</td>
+      <td><i class="material-icons">help_outline</i></td>
+    </tr>
+  </table>
+
+  <table *ngIf="knowledgeInfo">
+    <thead>
+      <tr>
+        <th>Requests</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input #newSynonym type="text" (keyup.enter)="onEnter(newSynonym.value); newSynonym.value ='';isChanges=true;" (keypress)="isChanges=true;" placeholder="Add request and press enter"
+            md-tooltip="add request and press enter" md-tooltip-position="before">
+        </td>
+      </tr>
+      <tr>
+        <td style="height:auto; border:none;">
+          <div class="tagsGroupLayout">
+            <div *ngFor="let request of knowledgeInfo?.SubjectRequests ; let i=index; trackBy:customTrackBy">
+              <input type="text" [ngModel]="knowledgeInfo.SubjectRequests[i]?.Contents" (ngModelChange)="knowledgeInfo.SubjectRequests[i].Contents = $event;isChanges=true;"
+                [ngModelOptions]="{standalone: true}">
+              <i class="material-icons" (click)="deleteRow(i); isChanges = true;">delete_forever</i>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="knowledgeInfo && knowledgeInfo?.ParentRequests && (knowledgeInfo?.ParentRequests.length > 0)">
+    <thead>
+      <tr>
+        <th>Default Request </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="height:auto; border:none;">
+          <div class="tagsGroupLayout">
+            <div *ngFor="let parentRequest of knowledgeInfo?.ParentRequests ; let i=index; trackBy:customTrackBy">
+              <input type="text" [ngModel]="knowledgeInfo.ParentRequests[i]?.Contents" [ngModelOptions]="{standalone: true}" [disabled]="true">
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="headerTable  questionMarkTable">
+    <tr>
+      <td>You can add more then one response (the system will randomize the response)</td>
+      <td><i class="material-icons">help_outline</i></td>
+    </tr>
+  </table>
+
+  <table *ngIf="knowledgeInfo">
+    <thead>
+      <tr>
+        <th>response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input #newRespons type="text" (keyup.enter)="onEnterRespond(newRespons.value); newRespons.value =''; isChanges=true;" (keypress)="isChanges=true;" placeholder="Add Response and press enter"
+            md-tooltip="add respons and press enter" md-tooltip-position="before">
+        </td>
+      </tr>
+      <tr>
+        <td style="height: auto; border:none">
+          <div class="tagsGroupLayout">
+            <div *ngFor="let respons of knowledgeInfo?.Responses; let i=index; trackBy:customTrackBy">
+              <input type="text" [ngModel]="knowledgeInfo?.Responses[i]" 
+              (ngModelChange)="knowledgeInfo.Responses[i] = $event; isChanges = true;"
+              [ngModelOptions]="{standalone: true}">
+              <i class="material-icons" (click)="deleteResponse(i); isChanges = true;">delete_forever</i>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+<!--<div class="entityLayout">
+  <div class="header">
+    <div id="buttons">
+      <button md-raised-button class="editButton" (click)="save();isEdit = !isEdit">SAVE</button>
+      <button md-raised-button class="editButton" (click)="deleteKnowledge()">DELETE</button>
+    </div>
+    <!--<div class="syncLoader" *ngIf="showLoader"></div>-->
+<!--<div class="cssload-container" *ngIf="showLoader">
+      <div class="loading6"></div>
+    </div>
+    <div id="circularG" *ngIf="showLoader">
+      <div id="circularG_1" class="circularG"></div>
+      <div id="circularG_2" class="circularG"></div>
+      <div id="circularG_3" class="circularG"></div>
+      <div id="circularG_4" class="circularG"></div>
+      <div id="circularG_5" class="circularG"></div>
+      <div id="circularG_6" class="circularG"></div>
+      <div id="circularG_7" class="circularG"></div>
+      <div id="circularG_8" class="circularG"></div>
+    </div>
+  </div>
+  <div class="requestResponsLayout"> 
+     <span>Knowledge Name:</span>
+    <input  type="text" name="Header" [(ngModel)]="knowledgeInfo.Header" (ngModelChange)="knowledgeInfo.Header = $event;changeHapend() " [ngModelOptions]="{standalone: true}" placeholder="Knowledge Name">
+    <span>Request:</span>
+    <div class="request">
+      <div *ngFor="let request of knowledgeInfo.SubjectRequests ; let i=index; trackBy:customTrackBy">
+        <input type="text" [ngModel]="knowledgeInfo.SubjectRequests[i].Contents" (ngModelChange)="knowledgeInfo.SubjectRequests[i].Contents = $event;changeHapend()"
+          [ngModelOptions]="{standalone: true}">
+          <i class="material-icons" (click)="deleteRow(i)">delete_forever</i>
+      </div>
+      <input #newSynonym type="text" (keyup.enter)="onEnter(newSynonym.value); newSynonym.value =''; changeHapend() " placeholder="Add request and press enter"
+        md-tooltip="add request and press enter" md-tooltip-position="before">
+    </div>
+    <div class="respond">
+      <span>Response:</span>
+      <textarea ref-textarea rows="6" [ngModel]="knowledgeInfo.Response" (ngModelChange)="knowledgeInfo.Response = $event; changeHapend()"></textarea>
+    </div>
+  </div>
+</div>-->

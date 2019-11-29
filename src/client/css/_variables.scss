@@ -1,0 +1,52 @@
+
+@import './breakpoints';
+
+$font-fallback:'Open Sans Hebrew Condensed',"Noto Serif Armenian", "Noto Serif Georgian", "Noto Serif", serif;
+$font-primary: "FlamaSemicondensed",$font-fallback;
+$font-flama:"Flama-Basic";
+//Colors
+$main1:#EAC2BD;
+$main2:#ba9a96;
+$main3:#F5E1DF;
+$main4:#f6ccc9;
+$main5:#d94f70;
+$light1:#FFFFFF;
+$light2:#E0E3E5;
+$light3:#C1C1C1;
+$light4:#f8f8f8;
+$light5:#cbcbcb;
+$light6:#e0e3e5;
+$dark1:#000000;
+$dark2:#2B2B2B;
+$dark3:#696969;
+$dark4:#242a2c;
+$dark5:#979797;
+$dark6:#ececec;
+$dark7:#f7f7f7;
+
+
+$bigFontSize:4rem;
+$mediumBigFontSize:3rem;
+$mediumFontSize:1.7rem;
+$mediumMediumFontSize:1.5rem;
+$mediumSmallFontSize:1.2rem;
+$smallFontSize:1rem;
+$xsFontSize:0.9rem;
+$xxsFontSize:0.8rem;
+
+//old Params    
+$main-Pink: #EAC2BD;
+$grayBackground:#f5f5f5;
+$editModeBackground:#414148;
+$componentBorderGray:#dbdcdd;
+$inputBorderColor:#DFDFDF;
+$DefualtTextblack:#1B1B1B;
+$DefualtTextwhite:#ffffff;
+$editModeBorder:#6b6d6f;
+$homeBackColor:#ffffff;
+$homePageButtonColor:#EAC2BD;
+$homeGreetingTextColor:#696969;
+$fotterHeadersColor:#EAC2BD;
+$inputLableColor:#c1c1c1;
+
+
